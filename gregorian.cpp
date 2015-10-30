@@ -38,16 +38,8 @@ lab2::Gregorian& lab2::Gregorian::operator-=(const long rhs) {
     return *this;
 }
 
-unsigned int lab2::Gregorian::week_day() {
-    return 0;
-}
-
 unsigned int lab2::Gregorian::days_this_month() {
     return 0;
-}
-
-std::string lab2::Gregorian::week_day_name() {
-    return std::string();
 }
 
 void lab2::Gregorian::add_year(int n) {

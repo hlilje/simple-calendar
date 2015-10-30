@@ -13,8 +13,16 @@ unsigned int lab2::WesternDate::day() {
     return _day;
 }
 
+unsigned int lab2::WesternDate::week_day() {
+    return 0;
+}
+
 unsigned int lab2::WesternDate::days_per_week() {
     return 7;
+}
+
+std::string lab2::WesternDate::week_day_name() {
+    return std::string();
 }
 
 std::string lab2::WesternDate::month_name() {

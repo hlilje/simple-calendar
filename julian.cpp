@@ -38,16 +38,8 @@ lab2::Julian& lab2::Julian::operator-=(const long rhs) {
     return *this;
 }
 
-unsigned int lab2::Julian::week_day() {
-    return 0;
-}
-
 unsigned int lab2::Julian::days_this_month() {
     return 0;
-}
-
-std::string lab2::Julian::week_day_name() {
-    return std::string();
 }
 
 void lab2::Julian::add_year(int n) {
