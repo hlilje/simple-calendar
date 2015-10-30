@@ -63,3 +63,7 @@ void lab2::Gregorian::add_month(int n) {
 int lab2::Gregorian::mod_julian_day() {
     return 0;
 }
+
+bool lab2::Gregorian::is_leap_year() {
+    return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
+}

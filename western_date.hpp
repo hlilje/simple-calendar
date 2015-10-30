@@ -5,7 +5,7 @@
 
 namespace lab2 {
     class WesternDate : public Date {
-        private:
+        protected:
             unsigned int _year;
             unsigned int _month;
             unsigned int _day;

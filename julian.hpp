@@ -6,6 +6,8 @@
 namespace lab2 {
     class Julian : public WesternDate {
         private:
+            bool is_leap_year();
+
         public:
             Julian();
             Julian(const Julian& other);

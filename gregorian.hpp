@@ -6,6 +6,8 @@
 namespace lab2 {
     class Gregorian : public WesternDate {
         private:
+            bool is_leap_year();
+
         public:
             Gregorian();
             Gregorian(const Gregorian& other);

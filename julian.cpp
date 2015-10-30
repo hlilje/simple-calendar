@@ -63,3 +63,7 @@ void lab2::Julian::add_month(int n) {
 int lab2::Julian::mod_julian_day() {
     return 0;
 }
+
+bool lab2::Julian::is_leap_year() {
+    return _year % 4 == 0;
+}
