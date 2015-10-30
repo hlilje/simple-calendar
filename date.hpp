@@ -5,8 +5,9 @@
 
 namespace lab2 {
     class Date {
-        private:
-            long _offset;
+        protected:
+            long _offset; // Starting 1858-01-01
+
         public:
             virtual ~Date() {};
 
