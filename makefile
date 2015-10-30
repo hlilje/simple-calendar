@@ -30,8 +30,8 @@ clean:
 
 test_init:
 	python2 $(LIBS)/cxxtestgen.py --error-printer \
-	-o testrunner.cpp test_template_vec.cpp
+	-o testrunner.cpp test_calendar.cpp
 
-test: test_init vector.o
+test: test_init $(OBJECTS)
 	$(CXX) $(CFLAGS) -o $(TEST_TARGET) -I$(LIBS) \
-	testrunner.cpp vector.o
+	testrunner.cpp $(OBJECTS)
