@@ -50,10 +50,6 @@ std::string lab2::Gregorian::week_day_name() {
     return std::string();
 }
 
-std::string lab2::Gregorian::month_name() {
-    return std::string();
-}
-
 void lab2::Gregorian::add_year(int n) {
 }
 

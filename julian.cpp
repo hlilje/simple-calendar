@@ -50,10 +50,6 @@ std::string lab2::Julian::week_day_name() {
     return std::string();
 }
 
-std::string lab2::Julian::month_name() {
-    return std::string();
-}
-
 void lab2::Julian::add_year(int n) {
 }
 
