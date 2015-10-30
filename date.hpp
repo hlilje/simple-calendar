@@ -8,7 +8,7 @@ namespace lab2 {
         private:
             long _offset;
         public:
-            virtual ~Date();
+            virtual ~Date() {};
 
             virtual long operator-(const Date& rhs);
 

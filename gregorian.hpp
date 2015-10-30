@@ -7,7 +7,13 @@ namespace lab2 {
     class Gregorian : public WesternDate {
         private:
         public:
+            Gregorian();
+            Gregorian(const Gregorian& other);
             ~Gregorian() override;
+
+            Gregorian& operator=(const Gregorian& rhs);
+            Gregorian& operator++(int);
+            Gregorian& operator--(int);
 
             Gregorian& operator++() override;
             Gregorian& operator--() override;

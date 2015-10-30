@@ -1,6 +1,27 @@
 #include "julian.hpp"
 
 
+lab2::Julian::Julian() {
+}
+
+lab2::Julian::Julian(const Julian& other) {
+}
+
+lab2::Julian::~Julian() {
+}
+
+lab2::Julian& lab2::Julian::operator=(const Julian& rhs) {
+    return *this;
+}
+
+lab2::Julian& lab2::Julian::operator++(int) {
+    return *this;
+}
+
+lab2::Julian& lab2::Julian::operator--(int) {
+    return *this;
+}
+
 lab2::Julian& lab2::Julian::operator++() {
     return *this;
 }

@@ -7,7 +7,13 @@ namespace lab2 {
     class Julian : public WesternDate {
         private:
         public:
+            Julian();
+            Julian(const Julian& other);
             ~Julian() override;
+
+            Julian& operator=(const Julian& rhs);
+            Julian& operator++(int);
+            Julian& operator--(int);
 
             Julian& operator++() override;
             Julian& operator--() override;

@@ -1,6 +1,27 @@
 #include "gregorian.hpp"
 
 
+lab2::Gregorian::Gregorian() {
+}
+
+lab2::Gregorian::Gregorian(const Gregorian& other) {
+}
+
+lab2::Gregorian::~Gregorian() {
+}
+
+lab2::Gregorian& lab2::Gregorian::operator=(const Gregorian& rhs) {
+    return *this;
+}
+
+lab2::Gregorian& lab2::Gregorian::operator++(int) {
+    return *this;
+}
+
+lab2::Gregorian& lab2::Gregorian::operator--(int) {
+    return *this;
+}
+
 lab2::Gregorian& lab2::Gregorian::operator++() {
     return *this;
 }

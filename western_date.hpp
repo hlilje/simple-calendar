@@ -10,7 +10,7 @@ namespace lab2 {
             unsigned int _month;
             unsigned int _day;
         public:
-            ~WesternDate() override;
+            ~WesternDate() override {};
 
             int year();
             unsigned int month();
