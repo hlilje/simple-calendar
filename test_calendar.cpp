@@ -13,9 +13,9 @@ class CalendarSuite : public CxxTest::TestSuite {
             set_k_time(tp);
 
             const struct tm *t = gmtime(&tp);
-            const int g_year  = t->tm_year + 1900;
-            const int g_month = t->tm_mon + 1;
-            const int g_day   = t->tm_mday;
+            const int g_year   = t->tm_year + 1900;
+            const int g_month  = t->tm_mon + 1;
+            const int g_day    = t->tm_mday;
 
             Gregorian g;
 
@@ -26,9 +26,9 @@ class CalendarSuite : public CxxTest::TestSuite {
             tp = 0;
             set_k_time(tp);
 
-            const int j_year = 1969;
+            const int j_year  = 1969;
             const int j_month = 12;
-            const int j_day = 19;
+            const int j_day   = 19;
 
             Julian j;
 

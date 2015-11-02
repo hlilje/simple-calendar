@@ -7,7 +7,7 @@ lab2::Julian::Julian() {
     unsigned int year  = t->tm_year + 1900;
     unsigned int month = t->tm_mon + 1;
     unsigned int day   = t->tm_mday;
-    const long jdn = gregorian_date_to_jdn(year, month, day);
+    const long jdn     = gregorian_date_to_jdn(year, month, day);
 
     jdn_to_julian_date(jdn, year, month, day);
 
