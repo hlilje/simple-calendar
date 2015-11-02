@@ -40,7 +40,6 @@ namespace lab2 {
             virtual void add_month(int n = 1) = 0;
             virtual unsigned int days_this_month() const = 0;
             virtual unsigned int months_per_year() const = 0;
-
-            /* friend std::ostream& operator<<(std::ostream& os, const Date& d); */
     };
+    std::ostream & operator<<(std::ostream & os, const Date & rhs);
 }
