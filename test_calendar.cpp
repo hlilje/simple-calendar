@@ -77,16 +77,15 @@ class CalendarSuite : public CxxTest::TestSuite {
             Gregorian g1(1970, 1, 1);
             long mod_jul = 40587;
             TS_ASSERT_EQUALS(g1.mod_julian_day(), mod_jul);
-            TS_ASSERT_EQUALS(g1.year(), 1970);
-            TS_ASSERT_EQUALS(g1.month(), 1);
-            TS_ASSERT_EQUALS(g1.day(), 1);
-            
+            TS_ASSERT_EQUALS((int) g1.year(), 1970);
+            TS_ASSERT_EQUALS((int) g1.month(), 1);
+            TS_ASSERT_EQUALS((int) g1.day(), 1);
 
             Julian j1(1969, 12, 19);
             TS_ASSERT_EQUALS(j1.mod_julian_day(), mod_jul);
-            TS_ASSERT_EQUALS(j1.year(), 1969);
-            TS_ASSERT_EQUALS(j1.month(), 12);
-            TS_ASSERT_EQUALS(j1.day(), 19);
+            TS_ASSERT_EQUALS((int) j1.year(), 1969);
+            TS_ASSERT_EQUALS((int) j1.month(), 12);
+            TS_ASSERT_EQUALS((int) j1.day(), 19);
 
             Gregorian g2(1858, 11, 17);
             TS_ASSERT_EQUALS(g2.mod_julian_day(), 0);
