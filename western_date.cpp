@@ -9,6 +9,21 @@ lab2::WesternDate::WesternDate(const unsigned int year,
                                const unsigned int day) :
     _year(year), _month(month), _day(day) {}
 
+bool lab2::WesternDate::is_valid_date() const {
+    if(_month > 12 || _month < 1 || _day < 1) return false;
+
+    if(_month == 1 || _month == 3 || _month == 5 || _month == 7 ||
+       _month == 8 || _month == 10 || _month == 12)
+        return _day <= 31;
+
+    if(_month == 4 || _month == 6 || _month == 9 || _month == 11)
+        return _day <= 30;
+
+    if(is_leap_year()) return _day <= 29;
+    else return _day <= 28;
+
+}
+
 long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
                                               const unsigned int month,
                                               const unsigned int day) const {
@@ -97,17 +112,27 @@ long lab2::WesternDate::mod_julian_day() const {
     return _offset - 2400001;
 }
 
-bool lab2::WesternDate::is_valid_date() const {
-    if(_month > 12 || _month < 1 || _day < 1) return false;
+void lab2::WesternDate::add_year(int n) {
+    _year += n;
 
-    if(_month == 1 || _month == 3 || _month == 5 || _month == 7 ||
-       _month == 8 || _month == 10 || _month == 12)
-        return _day <= 31;
+    while (!is_valid_date()) --_day;
 
-    if(_month == 4 || _month == 6 || _month == 9 || _month == 11)
-        return _day <= 30;
+    // TODO: Offset
+}
 
-    if(is_leap_year()) return _day <= 29;
-    else return _day <= 28;
+void lab2::WesternDate::add_month(int n) {
+    const int years = n / 12;
+    const int months = n % 12;
+    const int new_month = _month + months;
 
+    _year += years;
+
+    if (new_month > 12)
+        _month = new_month - 12;
+    else
+        _month += months;
+
+    while (!is_valid_date()) --_day;
+
+    // TODO: Offset
 }

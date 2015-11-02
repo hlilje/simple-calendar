@@ -59,44 +59,6 @@ unsigned int lab2::Gregorian::days_this_month() const {
     return 0;
 }
 
-void lab2::Gregorian::add_year(int n) {
-    _offset += 365;
-    ++_year;
-
-    if (is_leap_year() && (_month == 2) && (_day == 29))
-        --_day;
-}
-
-void lab2::Gregorian::add_month(int n) {
-    switch (_month) {
-        // 31 -> 30
-        case 1:
-        case 3:
-        case 5:
-        case 8:
-        case 10:
-            ++_month;
-            if (_day == 31) --_day;
-            break;
-        // 28/29/30/31 -> 31
-        case 2:
-        case 4:
-        case 6:
-        case 7:
-        case 9:
-        case 11:
-            ++_month;
-            break;
-        // New year
-        case 12:
-            _month = 1;
-            ++_year;
-            break;
-    }
-
-    _offset = gregorian_date_to_jdn(_year, _month, _day);
-}
-
 bool lab2::Gregorian::is_leap_year() const {
     return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
 }

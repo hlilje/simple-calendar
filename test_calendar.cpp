@@ -121,4 +121,45 @@ class CalendarSuite : public CxxTest::TestSuite {
             Julian j2;
             TS_ASSERT_EQUALS(j2.mod_julian_day(), mjd);
         }
+
+        void test_add_year() {
+            Gregorian g1(2015, 1, 2);
+            g1.add_year();
+            TS_ASSERT_EQUALS((int) g1.year(), 2016);
+            TS_ASSERT_EQUALS((int) g1.month(), 1);
+            TS_ASSERT_EQUALS((int) g1.day(), 2);
+
+            Gregorian g2(2010, 10, 20);
+            g2.add_year(10);
+            TS_ASSERT_EQUALS((int) g2.year(), 2020);
+            TS_ASSERT_EQUALS((int) g2.month(), 10);
+            TS_ASSERT_EQUALS((int) g2.day(), 20);
+
+            Gregorian g3(2012, 2, 29);
+            g3.add_year();
+            TS_ASSERT_EQUALS((int) g3.year(), 2013);
+            TS_ASSERT_EQUALS((int) g3.month(), 2);
+            TS_ASSERT_EQUALS((int) g3.day(), 28);
+
+            Julian j1(2015, 1, 2);
+            j1.add_year();
+            TS_ASSERT_EQUALS((int) j1.year(), 2016);
+            TS_ASSERT_EQUALS((int) j1.month(), 1);
+            TS_ASSERT_EQUALS((int) j1.day(), 2);
+
+            Julian j2(2010, 10, 20);
+            j2.add_year(10);
+            TS_ASSERT_EQUALS((int) j2.year(), 2020);
+            TS_ASSERT_EQUALS((int) j2.month(), 10);
+            TS_ASSERT_EQUALS((int) j2.day(), 20);
+
+            Julian j3(2012, 2, 29);
+            j3.add_year();
+            TS_ASSERT_EQUALS((int) j3.year(), 2013);
+            TS_ASSERT_EQUALS((int) j3.month(), 2);
+            TS_ASSERT_EQUALS((int) j3.day(), 28);
+        }
+
+        void test_add_month() {
+        }
 };

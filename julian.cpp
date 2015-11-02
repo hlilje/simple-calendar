@@ -75,12 +75,6 @@ unsigned int lab2::Julian::days_this_month() const {
     return 0;
 }
 
-void lab2::Julian::add_year(int n) {
-}
-
-void lab2::Julian::add_month(int n) {
-}
-
 bool lab2::Julian::is_leap_year() const {
     return _year % 4 == 0;
 }

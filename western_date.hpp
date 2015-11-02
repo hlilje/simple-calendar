@@ -37,9 +37,9 @@ namespace lab2 {
             std::string week_day_name() const;
             std::string month_name() const;
             long mod_julian_day() const;
+            void add_year(int n = 1);
+            void add_month(int n = 1);
 
             virtual unsigned int days_this_month() const = 0;
-            virtual void add_year(int n = 1) = 0; // TODO: Unspecified return type
-            virtual void add_month(int n = 1) = 0; // TODO: Unspecified return type
     };
 }

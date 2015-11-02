@@ -36,7 +36,5 @@ namespace lab2 {
             Julian & operator-=(const long rhs) override;
 
             unsigned int days_this_month() const override;
-            void add_year(int n = 1) override;
-            void add_month(int n = 1) override;
     };
 }
