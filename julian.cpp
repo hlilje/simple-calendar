@@ -37,6 +37,11 @@ long lab2::Julian::julian_date_to_jdn(const unsigned int year,
 }
 
 lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
+    _offset = rhs._offset;
+    _year = rhs._year;
+    _month = rhs._month;
+    _day = rhs._day;
+
     return *this;
 }
 

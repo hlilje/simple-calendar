@@ -21,6 +21,11 @@ lab2::Gregorian::Gregorian(const unsigned int year,
 lab2::Gregorian::Gregorian(const Gregorian & other) : WesternDate(other) {}
 
 lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
+    _offset = rhs._offset;
+    _year = rhs._year;
+    _month = rhs._month;
+    _day = rhs._day;
+
     return *this;
 }
 
