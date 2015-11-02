@@ -124,6 +124,10 @@ long lab2::WesternDate::mod_julian_day() const {
     return _offset - 2400001;
 }
 
+unsigned int lab2::WesternDate::months_per_year() const {
+    return 12;
+}
+
 void lab2::WesternDate::add_year(int n) {
     _year += n;
 
