@@ -110,7 +110,6 @@ class CalendarSuite : public CxxTest::TestSuite {
 
             set_k_time(t);
             Julian j2;
-            mjd = 40600;
             TS_ASSERT_EQUALS(mjd, j2.mod_julian_day());
         }
 };
