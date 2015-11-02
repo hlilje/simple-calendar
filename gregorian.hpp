@@ -8,8 +8,8 @@ namespace lab2 {
     class Gregorian : public WesternDate {
         private:
             // Return true if the current year is a leap year.
-            bool is_leap_year();
-            // Convert Julian Day Number to Gregorian Date
+            bool is_leap_year() const;
+            // Convert Julian Day Number to Julian Date
             void jdn_to_gregorian_date(const long jdn,
                                        unsigned int & year,
                                        unsigned int & month,
@@ -29,7 +29,7 @@ namespace lab2 {
             Gregorian & operator+=(const long rhs) override;
             Gregorian & operator-=(const long rhs) override;
 
-            unsigned int days_this_month() override;
+            unsigned int days_this_month() const override;
             void add_year(int n = 1) override;
             void add_month(int n = 1) override;
     };

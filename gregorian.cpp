@@ -41,7 +41,7 @@ lab2::Gregorian & lab2::Gregorian::operator-=(const long rhs) {
     return *this;
 }
 
-unsigned int lab2::Gregorian::days_this_month() {
+unsigned int lab2::Gregorian::days_this_month() const {
     return 0;
 }
 
@@ -51,7 +51,7 @@ void lab2::Gregorian::add_year(int n) {
 void lab2::Gregorian::add_month(int n) {
 }
 
-bool lab2::Gregorian::is_leap_year() {
+bool lab2::Gregorian::is_leap_year() const {
     return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
 }
 

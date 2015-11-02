@@ -13,23 +13,23 @@ namespace lab2 {
             // Convert given Gregorian date to Julian Day Number.
             long gregorian_date_to_jdn(const unsigned int year,
                                        const unsigned int month,
-                                       const unsigned int day);
+                                       const unsigned int day) const;
 
         public:
             WesternDate() = default;
             WesternDate(const WesternDate & other);
             ~WesternDate() override {};
 
-            int year();
-            unsigned int month();
-            unsigned int day();
-            unsigned int week_day();
-            unsigned int days_per_week();
-            std::string week_day_name();
-            std::string month_name();
+            int year() const;
+            unsigned int month() const;
+            unsigned int day() const;
+            unsigned int week_day() const;
+            unsigned int days_per_week() const;
+            std::string week_day_name() const;
+            std::string month_name() const;
             long mod_julian_day() const;
 
-            virtual unsigned int days_this_month() = 0;
+            virtual unsigned int days_this_month() const = 0;
             virtual void add_year(int n = 1) = 0; // TODO: Unspecified return type
             virtual void add_month(int n = 1) = 0; // TODO: Unspecified return type
     };

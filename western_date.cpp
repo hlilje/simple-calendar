@@ -6,36 +6,36 @@ lab2::WesternDate::WesternDate(const WesternDate & other) :
 
 long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
                                               const unsigned int month,
-                                              const unsigned int day) {
+                                              const unsigned int day) const {
     const unsigned int a = (14 - month) / 2;
     const unsigned int y = year + 4800 - a;
-    const unsigned int m = month + 12 * a - 3;
+    const unsigned int m = month + (12 * a) - 3;
 
-    return day + (153 * m + 2) / 5 + 365 * y + y / 4 - y / 100 + y / 400 -
-           32045;
+    return day + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - (y / 100) +
+           (y / 400) - 32045;
 }
 
-int lab2::WesternDate::year() {
+int lab2::WesternDate::year() const {
     return _year;
 }
 
-unsigned int lab2::WesternDate::month() {
+unsigned int lab2::WesternDate::month() const {
     return _month;
 }
 
-unsigned int lab2::WesternDate::day() {
+unsigned int lab2::WesternDate::day() const {
     return _day;
 }
 
-unsigned int lab2::WesternDate::week_day() {
+unsigned int lab2::WesternDate::week_day() const {
     return (_offset  % 7) + 1;
 }
 
-unsigned int lab2::WesternDate::days_per_week() {
+unsigned int lab2::WesternDate::days_per_week() const {
     return 7;
 }
 
-std::string lab2::WesternDate::week_day_name() {
+std::string lab2::WesternDate::week_day_name() const {
     switch (week_day()) {
         case 1:
             return "Monday";
@@ -56,7 +56,7 @@ std::string lab2::WesternDate::week_day_name() {
     }
 }
 
-std::string lab2::WesternDate::month_name() {
+std::string lab2::WesternDate::month_name() const {
     switch (_month) {
         case 1:
             return "January";
