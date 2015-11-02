@@ -14,7 +14,7 @@ unsigned int lab2::WesternDate::day() {
 }
 
 unsigned int lab2::WesternDate::week_day() {
-    return ((_offset + 3) % 7) + 1;
+    return (_offset  % 7) + 1;
 }
 
 unsigned int lab2::WesternDate::days_per_week() {
