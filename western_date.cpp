@@ -10,18 +10,9 @@ lab2::WesternDate::WesternDate(const unsigned int year,
     _year(year), _month(month), _day(day) {}
 
 bool lab2::WesternDate::is_valid_date() const {
-    if(_month > 12 || _month < 1 || _day < 1) return false;
-
-    if(_month == 1 || _month == 3 || _month == 5 || _month == 7 ||
-       _month == 8 || _month == 10 || _month == 12)
-        return _day <= 31;
-
-    if(_month == 4 || _month == 6 || _month == 9 || _month == 11)
-        return _day <= 30;
-
-    if(is_leap_year()) return _day <= 29;
-    else return _day <= 28;
-
+    if(_month > 12 || _month < 1 || _day < 1 || _day > days_this_month())
+        return false;
+    return true;
 }
 
 long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
@@ -104,6 +95,27 @@ std::string lab2::WesternDate::month_name() const {
             return "December";
         default:
             return "";
+    }
+}
+
+unsigned int lab2::WesternDate::days_this_month() const {
+    switch(_month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return 31;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30;
+        case 2:
+        default:
+            return is_leap_year() ? 29 : 28;
     }
 }
 

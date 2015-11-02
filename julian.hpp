@@ -29,7 +29,5 @@ namespace lab2 {
             Julian & operator--() override;
             Julian & operator+=(const long rhs) override;
             Julian & operator-=(const long rhs) override;
-
-            unsigned int days_this_month() const override;
     };
 }

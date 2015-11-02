@@ -29,7 +29,5 @@ namespace lab2 {
             Gregorian & operator--() override;
             Gregorian & operator+=(const long rhs) override;
             Gregorian & operator-=(const long rhs) override;
-
-            unsigned int days_this_month() const override;
     };
 }

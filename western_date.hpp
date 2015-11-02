@@ -43,7 +43,6 @@ namespace lab2 {
             long mod_julian_day() const;
             void add_year(int n = 1);
             void add_month(int n = 1);
-
-            virtual unsigned int days_this_month() const = 0;
+            unsigned int days_this_month() const;
     };
 }
