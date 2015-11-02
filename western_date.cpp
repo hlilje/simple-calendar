@@ -93,5 +93,6 @@ std::string lab2::WesternDate::month_name() const {
 }
 
 long lab2::WesternDate::mod_julian_day() const {
-    return _offset - 2400000;
+    // _offset is not real JDN, so we subtract extra 0.5
+    return _offset - 2400001;
 }
