@@ -25,6 +25,10 @@ namespace lab2 {
             long gregorian_date_to_jdn(const unsigned int year,
                                        const unsigned int month,
                                        const unsigned int day) const;
+            // Convert current date to Julian Day Number
+            virtual void date_to_jdn() = 0;
+            // Convert current Julian Day Number to date
+            virtual void jdn_to_date() = 0;
 
         public:
             ~WesternDate() override {};

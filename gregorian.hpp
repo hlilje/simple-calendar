@@ -9,11 +9,10 @@ namespace lab2 {
         private:
             // Return true if the current year is a leap year.
             bool is_leap_year() const override;
-            // Convert Julian Day Number to Julian Date
-            void jdn_to_gregorian_date(const long jdn,
-                                       unsigned int & year,
-                                       unsigned int & month,
-                                       unsigned int & day) const;
+            // Convert Julian Day Number to Gregorian Date
+            void jdn_to_date() override;
+            // Convert given Gregorian date to Julian Day Number
+            void date_to_jdn() override;
 
         public:
             Gregorian();

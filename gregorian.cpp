@@ -17,10 +17,14 @@ lab2::Gregorian::Gregorian(const unsigned int year,
     WesternDate(year, month, day) {
     if(!is_valid_date())
         throw std::invalid_argument("invalid date");
-    _offset = gregorian_date_to_jdn(_year, _month, _day);
+    date_to_jdn(); // sets _offset
 }
 
 lab2::Gregorian::Gregorian(const Gregorian & other) : WesternDate(other) {}
+
+void lab2::Gregorian::date_to_jdn() {
+    _offset = gregorian_date_to_jdn(_year, _month, _day);
+}
 
 lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
     _offset = rhs._offset;
@@ -63,10 +67,8 @@ bool lab2::Gregorian::is_leap_year() const {
     return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
 }
 
-void lab2::Gregorian::jdn_to_gregorian_date(const long jdn,
-                                            unsigned int & year,
-                                            unsigned int & month,
-                                            unsigned int & day) const {
+void lab2::Gregorian::jdn_to_date() {
+    long jdn = _offset;
     unsigned int y = 4716;
     unsigned int j = 1401;
     unsigned int m = 2;
@@ -84,7 +86,7 @@ void lab2::Gregorian::jdn_to_gregorian_date(const long jdn,
     unsigned long e = (r * f) + v;
     unsigned long g = (e % p) / r;
     unsigned long h = (u * g) + w;
-    day = ((h % s) / u) + 1;
-    month = (((h / s) + m) % n) + 1;
-    year = (e / p) - y + ((n + m - month) / n);
+    _day = ((h % s) / u) + 1;
+    _month = (((h / s) + m) % n) + 1;
+    _year = (e / p) - y + ((n + m - _month) / n);
 }

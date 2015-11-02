@@ -10,14 +10,9 @@ namespace lab2 {
             // Return true if the current year is a leap year.
             bool is_leap_year() const override;
             // Convert Julian Day Number to Julian Date
-            void jdn_to_julian_date(const long jdn,
-                                    unsigned int & year,
-                                    unsigned int & month,
-                                    unsigned int & day) const;
+            void jdn_to_date() override;
             // Convert given Julian date to Julian Day Number
-            long julian_date_to_jdn(const unsigned int year,
-                                    const unsigned int month,
-                                    const unsigned int day) const;
+            void date_to_jdn() override;
 
         public:
             Julian();

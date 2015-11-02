@@ -9,12 +9,8 @@ lab2::Julian::Julian() {
     unsigned int day   = t->tm_mday;
     const long jdn     = gregorian_date_to_jdn(year, month, day);
 
-    jdn_to_julian_date(jdn, year, month, day);
-
     _offset = jdn;
-    _year = year;
-    _month = month;
-    _day = day;
+    jdn_to_date(); // sets _year, _month, _day
 }
 
 lab2::Julian::Julian(const unsigned int year,
@@ -23,19 +19,17 @@ lab2::Julian::Julian(const unsigned int year,
     WesternDate(year, month, day) {
     if(!is_valid_date())
         throw std::invalid_argument("invalid date");
-    _offset = julian_date_to_jdn(_year, _month, _day);
+    date_to_jdn(); // sets _offset
 }
 
 lab2::Julian::Julian(const Julian & other) : WesternDate(other) {}
 
-long lab2::Julian::julian_date_to_jdn(const unsigned int year,
-                                      const unsigned int month,
-                                      const unsigned int day) const {
-    const unsigned int a = (14 - month) / 12;
-    const unsigned int y = year + 4800 - a;
-    const unsigned int m = month + (12 * a) - 3;
+void lab2::Julian::date_to_jdn() {
+    const unsigned int a = (14 - _month) / 12;
+    const unsigned int y = _year + 4800 - a;
+    const unsigned int m = _month + (12 * a) - 3;
 
-    return day + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - 32083;
+    _offset = _day + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - 32083;
 }
 
 lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
@@ -79,10 +73,8 @@ bool lab2::Julian::is_leap_year() const {
     return _year % 4 == 0;
 }
 
-void lab2::Julian::jdn_to_julian_date(const long jdn,
-                                      unsigned int & year,
-                                      unsigned int & month,
-                                      unsigned int & day) const {
+void lab2::Julian::jdn_to_date() {
+    long jdn = _offset;
     unsigned int y = 4716;
     unsigned int j = 1401;
     unsigned int m = 2;
@@ -98,7 +90,7 @@ void lab2::Julian::jdn_to_julian_date(const long jdn,
     unsigned long e = (r * f) + v;
     unsigned long g = (e % p) / r;
     unsigned long h = (u * g) + w;
-    day = ((h % s) / u) + 1;
-    month = (((h / s) + m) % n) + 1;
-    year = (e / p) - y + ((n + m - month) / n);
+    _day = ((h % s) / u) + 1;
+    _month = (((h / s) + m) % n) + 1;
+    _year = (e / p) - y + ((n + m - _month) / n);
 }
