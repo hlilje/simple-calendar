@@ -16,8 +16,8 @@ namespace lab2 {
                                     unsigned int & day) const;
             // Convert given Julian date to Julian Day Number
             long julian_date_to_jdn(const unsigned int year,
-                                       const unsigned int month,
-                                       const unsigned int day) const;
+                                    const unsigned int month,
+                                    const unsigned int day) const;
 
         public:
             Julian();
