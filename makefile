@@ -1,5 +1,5 @@
-CXX = g++
-CFLAGS = -g -Wall -std=c++0x
+CXX = g++-4.9
+CFLAGS = -g -Wall -std=c++11
 LIBS = ../cxxtest
 TARGET = calendar
 TEST_TARGET = test

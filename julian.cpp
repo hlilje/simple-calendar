@@ -68,8 +68,6 @@ void lab2::Gregorian::jdn_to_julian_date(const long jdn,
     unsigned int u = 5;
     unsigned int s = 153;
     unsigned int w = 2;
-    unsigned int B = 274277;
-    unsigned int C = 38;
 
     unsigned int f = jdn + j;
     unsigned int e = (r * f) + v;
