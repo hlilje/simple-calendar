@@ -1,8 +1,8 @@
 #include "western_date.hpp"
 
 
-lab2::WesternDate::WesternDate(const WesternDate & other) :
-    Date(other), _year(other._year), _month(other._month), _day(other._day) {}
+lab2::WesternDate::WesternDate(const Date & other) :
+    Date(other) {}
 
 lab2::WesternDate::WesternDate(const unsigned int year,
                                const unsigned int month,

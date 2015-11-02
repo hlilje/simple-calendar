@@ -16,7 +16,7 @@ namespace lab2 {
 
         public:
             Gregorian();
-            Gregorian(const Gregorian & other);
+            Gregorian(const Date & other);
             Gregorian(const unsigned int year, const unsigned int month,
                       const unsigned int day);
             ~Gregorian() override {};

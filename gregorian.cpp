@@ -20,7 +20,7 @@ lab2::Gregorian::Gregorian(const unsigned int year,
     date_to_jdn(); // sets _offset
 }
 
-lab2::Gregorian::Gregorian(const Gregorian & other) : WesternDate(other) {}
+lab2::Gregorian::Gregorian(const Date & other) : WesternDate(other) { jdn_to_date(); }
 
 void lab2::Gregorian::date_to_jdn() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
