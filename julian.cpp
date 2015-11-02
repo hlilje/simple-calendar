@@ -57,7 +57,7 @@ bool lab2::Julian::is_leap_year() {
 void lab2::Gregorian::jdn_to_julian_date(const long jdn,
                                          unsigned int & year,
                                          unsigned int & month,
-                                         unsigned int & day) {
+                                         unsigned int & day) const {
     unsigned int y = 4716;
     unsigned int j = 1401;
     unsigned int m = 2;
