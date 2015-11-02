@@ -11,33 +11,33 @@ lab2::Gregorian::Gregorian() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
 
-lab2::Gregorian::Gregorian(const Gregorian& other) : WesternDate(other) {}
+lab2::Gregorian::Gregorian(const Gregorian & other) : WesternDate(other) {}
 
-lab2::Gregorian& lab2::Gregorian::operator=(const Gregorian& rhs) {
+lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator++(int) {
+lab2::Gregorian & lab2::Gregorian::operator++(int) {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator--(int) {
+lab2::Gregorian & lab2::Gregorian::operator--(int) {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator++() {
+lab2::Gregorian & lab2::Gregorian::operator++() {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator--() {
+lab2::Gregorian & lab2::Gregorian::operator--() {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator+=(const long rhs) {
+lab2::Gregorian & lab2::Gregorian::operator+=(const long rhs) {
     return *this;
 }
 
-lab2::Gregorian& lab2::Gregorian::operator-=(const long rhs) {
+lab2::Gregorian & lab2::Gregorian::operator-=(const long rhs) {
     return *this;
 }
 

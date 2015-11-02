@@ -17,17 +17,17 @@ namespace lab2 {
 
         public:
             Gregorian();
-            Gregorian(const Gregorian& other);
+            Gregorian(const Gregorian & other);
             ~Gregorian() override {};
 
-            Gregorian& operator=(const Gregorian& rhs);
-            Gregorian& operator++(int);
-            Gregorian& operator--(int);
+            Gregorian & operator=(const Gregorian & rhs);
+            Gregorian & operator++(int);
+            Gregorian & operator--(int);
 
-            Gregorian& operator++() override;
-            Gregorian& operator--() override;
-            Gregorian& operator+=(const long rhs) override;
-            Gregorian& operator-=(const long rhs) override;
+            Gregorian & operator++() override;
+            Gregorian & operator--() override;
+            Gregorian & operator+=(const long rhs) override;
+            Gregorian & operator-=(const long rhs) override;
 
             unsigned int days_this_month() override;
             void add_year(int n = 1) override;

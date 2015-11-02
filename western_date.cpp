@@ -1,15 +1,15 @@
 #include "western_date.hpp"
 
 
-lab2::WesternDate::WesternDate(const WesternDate& other) :
+lab2::WesternDate::WesternDate(const WesternDate & other) :
     Date(other), _year(other._year), _month(other._month), _day(other._day) {}
 
-long lab2::WesternDate::gregorian_date_to_jdn(const long year,
-                                              const long month,
-                                              const long day) {
-    const long a = (14 - month) / 2;
-    const long y = year + 4800 - a;
-    const long m = month + 12 * a - 3;
+long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
+                                              const unsigned int month,
+                                              const unsigned int day) {
+    const unsigned int a = (14 - month) / 2;
+    const unsigned int y = year + 4800 - a;
+    const unsigned int m = month + 12 * a - 3;
 
     return day + (153 * m + 2) / 5 + 365 * y + y / 4 - y / 100 + y / 400 -
            32045;

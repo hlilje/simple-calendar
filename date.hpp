@@ -10,22 +10,22 @@ namespace lab2 {
 
         public:
             Date() = default;
-            Date(const Date& other);
+            Date(const Date & other);
             virtual ~Date() {};
 
-            virtual long operator-(const Date& rhs);
+            virtual long operator-(const Date & rhs);
 
-            virtual Date& operator++() = 0;
-            virtual Date& operator--() = 0;
-            virtual Date& operator+=(const long rhs) = 0;
-            virtual Date& operator-=(const long rhs) = 0;
+            virtual Date & operator++() = 0;
+            virtual Date & operator--() = 0;
+            virtual Date & operator+=(const long rhs) = 0;
+            virtual Date & operator-=(const long rhs) = 0;
 
-            virtual bool operator==(const Date& rhs);
-            virtual bool operator!=(const Date& rhs);
-            virtual bool operator<(const Date& rhs);
-            virtual bool operator<=(const Date& rhs);
-            virtual bool operator>(const Date& rhs);
-            virtual bool operator>=(const Date& rhs);
+            virtual bool operator==(const Date & rhs);
+            virtual bool operator!=(const Date & rhs);
+            virtual bool operator<(const Date & rhs);
+            virtual bool operator<=(const Date & rhs);
+            virtual bool operator>(const Date & rhs);
+            virtual bool operator>=(const Date & rhs);
 
             /* friend std::ostream& operator<<(std::ostream& os, const Date& d); */
     };

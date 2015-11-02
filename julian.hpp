@@ -17,17 +17,17 @@ namespace lab2 {
 
         public:
             Julian();
-            Julian(const Julian& other);
+            Julian(const Julian & other);
             ~Julian() override {};
 
-            Julian& operator=(const Julian& rhs);
-            Julian& operator++(int);
-            Julian& operator--(int);
+            Julian & operator=(const Julian& rhs);
+            Julian & operator++(int);
+            Julian & operator--(int);
 
-            Julian& operator++() override;
-            Julian& operator--() override;
-            Julian& operator+=(const long rhs) override;
-            Julian& operator-=(const long rhs) override;
+            Julian & operator++() override;
+            Julian & operator--() override;
+            Julian & operator+=(const long rhs) override;
+            Julian & operator-=(const long rhs) override;
 
             unsigned int days_this_month() override;
             void add_year(int n = 1) override;

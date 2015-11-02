@@ -3,36 +3,47 @@
 
 lab2::Julian::Julian() {
     time_t time; k_time(&time); // Init time
+    const struct tm *t = gmtime(&time);
+    unsigned int year  = t->tm_year + 1900;
+    unsigned int month = t->tm_mon + 1;
+    unsigned int day   = t->tm_mday;
+    const long jdn = gregorian_date_to_jdn(year, month, day);
+
+    jdn_to_julian_date(jdn, year, month, day);
+
+    _offset = jdn;
+    _year = year;
+    _month = month;
+    _day = day;
 }
 
-lab2::Julian::Julian(const Julian& other) {
-}
+lab2::Julian::Julian(const Julian & other) : WesternDate(other) {}
 
-lab2::Julian& lab2::Julian::operator=(const Julian& rhs) {
+lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator++(int) {
+lab2::Julian & lab2::Julian::operator++(int) {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator--(int) {
+lab2::Julian & lab2::Julian::operator--(int) {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator++() {
+lab2::Julian & lab2::Julian::operator++() {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator--() {
+lab2::Julian & lab2::Julian::operator--() {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator+=(const long rhs) {
+lab2::Julian & lab2::Julian::operator+=(const long rhs) {
     return *this;
 }
 
-lab2::Julian& lab2::Julian::operator-=(const long rhs) {
+lab2::Julian & lab2::Julian::operator-=(const long rhs) {
     return *this;
 }
 
@@ -54,10 +65,10 @@ bool lab2::Julian::is_leap_year() {
     return _year % 4 == 0;
 }
 
-void lab2::Gregorian::jdn_to_julian_date(const long jdn,
-                                         unsigned int & year,
-                                         unsigned int & month,
-                                         unsigned int & day) const {
+void lab2::Julian::jdn_to_julian_date(const long jdn,
+                                      unsigned int & year,
+                                      unsigned int & month,
+                                      unsigned int & day) const {
     unsigned int y = 4716;
     unsigned int j = 1401;
     unsigned int m = 2;
