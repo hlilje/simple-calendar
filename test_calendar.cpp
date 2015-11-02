@@ -99,7 +99,7 @@ class CalendarSuite : public CxxTest::TestSuite {
             long mjd = 51827;
             TS_ASSERT_EQUALS(mjd, g1.mod_julian_day());
 
-            Gregorian j1(2000, 10, 10);
+            Julian j1(2000, 10, 10);
             mjd = 51840;
             TS_ASSERT_EQUALS(mjd, j1.mod_julian_day());
 
