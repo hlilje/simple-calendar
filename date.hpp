@@ -8,9 +8,10 @@ namespace lab2 {
         protected:
             long _offset; // Starting at Julian Date 0
 
-        public:
             Date() = default;
             Date(const Date & other);
+
+        public:
             virtual ~Date() {};
 
             virtual long operator-(const Date & rhs);
