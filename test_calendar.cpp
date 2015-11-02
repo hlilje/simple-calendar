@@ -36,4 +36,13 @@ class CalendarSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j.month(), j_month);
             TS_ASSERT_EQUALS((int) j.day(), j_day);
         }
+
+        void test_date_constructors() {
+            Gregorian g(1970, 1, 1);
+            long mod_jul = 40587;
+            TS_ASSERT_EQUALS(mod_jul, g.mod_julian_day());
+
+            Julian j(1969, 12, 19);
+            TS_ASSERT_EQUALS(mod_jul, j.mod_julian_day());
+        }
 };
