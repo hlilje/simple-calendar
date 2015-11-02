@@ -19,11 +19,22 @@ lab2::Julian::Julian() {
 
 lab2::Julian::Julian(const unsigned int year,
                      const unsigned int month,
-                     const unsigned int day) {
-    _offset = 0;
+                     const unsigned int day) :
+    WesternDate(year, month, day) {
+    _offset = julian_date_to_jdn(_year, _month, _day);
 }
 
 lab2::Julian::Julian(const Julian & other) : WesternDate(other) {}
+
+long lab2::Julian::julian_date_to_jdn(const unsigned int year,
+                                              const unsigned int month,
+                                              const unsigned int day) const {
+    const unsigned int a = (14 - month) / 2;
+    const unsigned int y = year + 4800 - a;
+    const unsigned int m = month + (12 * a) - 3;
+
+    return day + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - 32083;
+}
 
 lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
     return *this;

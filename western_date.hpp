@@ -11,6 +11,9 @@ namespace lab2 {
             unsigned int _day;
 
             WesternDate() = default;
+            WesternDate(const unsigned int year,
+                        const unsigned int month,
+                        const unsigned int day);
             WesternDate(const WesternDate & other);
 
             // Convert given Gregorian date to Julian Day Number.

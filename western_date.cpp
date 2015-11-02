@@ -4,6 +4,11 @@
 lab2::WesternDate::WesternDate(const WesternDate & other) :
     Date(other), _year(other._year), _month(other._month), _day(other._day) {}
 
+lab2::WesternDate::WesternDate(const unsigned int year,
+                               const unsigned int month,
+                               const unsigned int day) :
+    _year(year), _month(month), _day(day) {}
+
 long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
                                               const unsigned int month,
                                               const unsigned int day) const {
