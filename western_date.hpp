@@ -27,10 +27,10 @@ namespace lab2 {
             unsigned int days_per_week();
             std::string week_day_name();
             std::string month_name();
+            long mod_julian_day() const;
 
             virtual unsigned int days_this_month() = 0;
             virtual void add_year(int n = 1) = 0; // TODO: Unspecified return type
             virtual void add_month(int n = 1) = 0; // TODO: Unspecified return type
-            virtual int mod_julian_day() = 0;
     };
 }

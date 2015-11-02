@@ -86,3 +86,7 @@ std::string lab2::WesternDate::month_name() {
             return "";
     }
 }
+
+long lab2::WesternDate::mod_julian_day() const {
+    return _offset - 2400000;
+}

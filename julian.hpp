@@ -32,6 +32,5 @@ namespace lab2 {
             unsigned int days_this_month() override;
             void add_year(int n = 1) override;
             void add_month(int n = 1) override;
-            int mod_julian_day() override;
     };
 }

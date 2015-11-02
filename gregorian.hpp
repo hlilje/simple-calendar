@@ -9,7 +9,7 @@ namespace lab2 {
         private:
             // Return true if the current year is a leap year.
             bool is_leap_year();
-            // Convert Julian Day Number to Julian Date
+            // Convert Julian Day Number to Gregorian Date
             void jdn_to_gregorian_date(const long jdn,
                                        unsigned int & year,
                                        unsigned int & month,
@@ -32,6 +32,5 @@ namespace lab2 {
             unsigned int days_this_month() override;
             void add_year(int n = 1) override;
             void add_month(int n = 1) override;
-            int mod_julian_day() override;
     };
 }
