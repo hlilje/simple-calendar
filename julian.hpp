@@ -22,8 +22,8 @@ namespace lab2 {
             ~Julian() override {};
 
             Julian & operator=(const Julian& rhs);
-            Julian & operator++(int);
-            Julian & operator--(int);
+            Julian operator++(int);
+            Julian operator--(int);
 
             Julian & operator++() override;
             Julian & operator--() override;

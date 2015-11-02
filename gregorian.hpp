@@ -22,8 +22,8 @@ namespace lab2 {
             ~Gregorian() override {};
 
             Gregorian & operator=(const Gregorian & rhs);
-            Gregorian & operator++(int);
-            Gregorian & operator--(int);
+            Gregorian operator++(int);
+            Gregorian operator--(int);
 
             Gregorian & operator++() override;
             Gregorian & operator--() override;

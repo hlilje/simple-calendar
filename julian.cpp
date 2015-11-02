@@ -41,27 +41,41 @@ lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
     return *this;
 }
 
-lab2::Julian & lab2::Julian::operator++(int) {
-    return *this;
+lab2::Julian lab2::Julian::operator++(int) {
+    Julian tmp = *this;
+    _offset++;
+    jdn_to_date();
+    return tmp;
 }
 
-lab2::Julian & lab2::Julian::operator--(int) {
-    return *this;
+lab2::Julian lab2::Julian::operator--(int) {
+    Julian tmp = *this;
+    _offset--;
+    jdn_to_date();
+    return tmp;
 }
 
 lab2::Julian & lab2::Julian::operator++() {
+    _offset++;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Julian & lab2::Julian::operator--() {
+    _offset--;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Julian & lab2::Julian::operator+=(const long rhs) {
+    _offset += rhs;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Julian & lab2::Julian::operator-=(const long rhs) {
+    _offset -= rhs;
+    jdn_to_date();
     return *this;
 }
 

@@ -35,27 +35,41 @@ lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
     return *this;
 }
 
-lab2::Gregorian & lab2::Gregorian::operator++(int) {
-    return *this;
+lab2::Gregorian lab2::Gregorian::operator++(int) {
+    Gregorian tmp = *this;
+    _offset++;
+    jdn_to_date();
+    return tmp;
 }
 
-lab2::Gregorian & lab2::Gregorian::operator--(int) {
-    return *this;
+lab2::Gregorian lab2::Gregorian::operator--(int) {
+    Gregorian tmp = *this;
+    _offset--;
+    jdn_to_date();
+    return tmp;
 }
 
 lab2::Gregorian & lab2::Gregorian::operator++() {
+    _offset++;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Gregorian & lab2::Gregorian::operator--() {
+    _offset--;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Gregorian & lab2::Gregorian::operator+=(const long rhs) {
+    _offset += rhs;
+    jdn_to_date();
     return *this;
 }
 
 lab2::Gregorian & lab2::Gregorian::operator-=(const long rhs) {
+    _offset -= rhs;
+    jdn_to_date();
     return *this;
 }
 
