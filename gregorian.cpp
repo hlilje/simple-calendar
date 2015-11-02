@@ -81,13 +81,13 @@ void lab2::Gregorian::jdn_to_gregorian_date(const long jdn,
     unsigned int u = 5;
     unsigned int s = 153;
     unsigned int w = 2;
-    unsigned int B = 274277;
+    unsigned long B = 274277;
     unsigned int C = 38;
 
-    unsigned int f = jdn + j + (((((4 * jdn) + B) / 146097) * 3) / 4) - C;
-    unsigned int e = (r * f) + v;
-    unsigned int g = (e % p) / r;
-    unsigned int h = (u * g) + w;
+    unsigned long f = jdn + j + (((((4 * jdn) + B) / 146097) * 3) / 4) - C;
+    unsigned long e = (r * f) + v;
+    unsigned long g = (e % p) / r;
+    unsigned long h = (u * g) + w;
     day = ((h % s) / u) + 1;
     month = (((h / s) + m) % n) + 1;
     year = (e / p) - y + ((n + m - month) / n);
