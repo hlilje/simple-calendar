@@ -21,6 +21,8 @@ lab2::Julian::Julian(const unsigned int year,
                      const unsigned int month,
                      const unsigned int day) :
     WesternDate(year, month, day) {
+    if(!is_valid_date())
+        throw std::invalid_argument("invalid date");
     _offset = julian_date_to_jdn(_year, _month, _day);
 }
 

@@ -94,6 +94,15 @@ class CalendarSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(j2.mod_julian_day(), 0);
         }
 
+        void test_valid_date() {
+            TS_ASSERT_THROWS(Gregorian(2100, 2, 29), std::invalid_argument);
+            TS_ASSERT_THROWS_NOTHING(Julian(2100, 2, 29));
+            TS_ASSERT_THROWS_NOTHING(Gregorian(2400, 2, 29));
+            TS_ASSERT_THROWS_NOTHING(Julian(2400, 2, 29));
+            TS_ASSERT_THROWS(Gregorian(2345, 4, 31), std::invalid_argument);
+            TS_ASSERT_THROWS(Julian(2345, 4, 31), std::invalid_argument);
+        }
+
         void test_mod_julian_day() {
             Gregorian g1(2000, 10, 10);
             long mjd = 51827;

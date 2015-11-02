@@ -1,6 +1,7 @@
 #pragma once
 
 #include "date.hpp"
+#include <stdexcept>
 
 
 namespace lab2 {
