@@ -129,7 +129,7 @@ void lab2::WesternDate::add_year(int n) {
 
     while (!is_valid_date()) --_day;
 
-    // TODO: Offset
+    date_to_jdn();
 }
 
 void lab2::WesternDate::add_month(int n) {
@@ -148,5 +148,5 @@ void lab2::WesternDate::add_month(int n) {
 
     while (!is_valid_date()) --_day;
 
-    // TODO: Offset
+    date_to_jdn();
 }
