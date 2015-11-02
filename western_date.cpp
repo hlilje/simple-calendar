@@ -12,7 +12,7 @@ lab2::WesternDate::WesternDate(const unsigned int year,
 long lab2::WesternDate::gregorian_date_to_jdn(const unsigned int year,
                                               const unsigned int month,
                                               const unsigned int day) const {
-    const unsigned int a = (14 - month) / 2;
+    const unsigned int a = (14 - month) / 12;
     const unsigned int y = year + 4800 - a;
     const unsigned int m = month + (12 * a) - 3;
 
