@@ -16,6 +16,10 @@ namespace lab2 {
                         const unsigned int day);
             WesternDate(const WesternDate & other);
 
+            // Return true if the current year is a leap year.
+            virtual bool is_leap_year() const = 0;
+            // Return true if the date is valid
+            bool is_valid_date() const;
             // Convert given Gregorian date to Julian Day Number.
             long gregorian_date_to_jdn(const unsigned int year,
                                        const unsigned int month,

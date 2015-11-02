@@ -96,3 +96,18 @@ long lab2::WesternDate::mod_julian_day() const {
     // _offset is not real JDN, so we subtract extra 0.5
     return _offset - 2400001;
 }
+
+bool lab2::WesternDate::is_valid_date() const {
+    if(_month > 12 || _month < 1 || _day < 1) return false;
+
+    if(_month == 1 || _month == 3 || _month == 5 || _month == 7 ||
+       _month == 8 || _month == 10 || _month == 12)
+        return _day <= 31;
+
+    if(_month == 4 || _month == 6 || _month == 9 || _month == 11)
+        return _day <= 30;
+
+    if(is_leap_year()) return _day <= 29;
+    else return _day <= 28;
+
+}
