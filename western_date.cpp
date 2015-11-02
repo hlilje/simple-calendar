@@ -127,10 +127,12 @@ void lab2::WesternDate::add_month(int n) {
 
     _year += years;
 
-    if (new_month > 12)
+    if (new_month > 12) {
         _month = new_month - 12;
-    else
+        ++_year;
+    } else {
         _month += months;
+    }
 
     while (!is_valid_date()) --_day;
 
