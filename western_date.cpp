@@ -127,7 +127,8 @@ long lab2::WesternDate::mod_julian_day() const {
 void lab2::WesternDate::add_year(int n) {
     _year += n;
 
-    while (!is_valid_date()) --_day;
+    const int dtm = days_this_month();
+    if (_day > dtm) _day = dtm;
 
     date_to_jdn();
 }
@@ -146,7 +147,8 @@ void lab2::WesternDate::add_month(int n) {
         _month += months;
     }
 
-    while (!is_valid_date()) --_day;
+    const int dtm = days_this_month();
+    if (_day > dtm) _day = dtm;
 
     date_to_jdn();
 }
