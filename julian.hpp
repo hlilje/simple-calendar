@@ -7,12 +7,13 @@
 namespace lab2 {
     class Julian : public WesternDate {
         private:
+            // Return true if the current year is a leap year.
             bool is_leap_year();
 
         public:
             Julian();
             Julian(const Julian& other);
-            ~Julian() override;
+            ~Julian() override {};
 
             Julian& operator=(const Julian& rhs);
             Julian& operator++(int);

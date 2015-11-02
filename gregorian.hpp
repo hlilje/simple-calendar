@@ -7,12 +7,13 @@
 namespace lab2 {
     class Gregorian : public WesternDate {
         private:
+            // Return true if the current year is a leap year.
             bool is_leap_year();
 
         public:
             Gregorian();
             Gregorian(const Gregorian& other);
-            ~Gregorian() override;
+            ~Gregorian() override {};
 
             Gregorian& operator=(const Gregorian& rhs);
             Gregorian& operator++(int);

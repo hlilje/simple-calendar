@@ -6,9 +6,11 @@
 namespace lab2 {
     class Date {
         protected:
-            long _offset; // Starting 1858-01-01
+            long _offset; // Starting at Julian Date 0
 
         public:
+            Date() = default;
+            Date(const Date& other);
             virtual ~Date() {};
 
             virtual long operator-(const Date& rhs);

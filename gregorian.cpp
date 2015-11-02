@@ -2,13 +2,16 @@
 
 
 lab2::Gregorian::Gregorian() {
+    time_t time; k_time(&time); // Init time
+    const struct tm *t = gmtime(&time);
+    _year  = t->tm_year + 1900;
+    _month = t->tm_mon + 1;
+    _day   = t->tm_mday;
+
+    _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
 
-lab2::Gregorian::Gregorian(const Gregorian& other) {
-}
-
-lab2::Gregorian::~Gregorian() {
-}
+lab2::Gregorian::Gregorian(const Gregorian& other) : WesternDate(other) {}
 
 lab2::Gregorian& lab2::Gregorian::operator=(const Gregorian& rhs) {
     return *this;

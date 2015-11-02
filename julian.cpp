@@ -2,12 +2,10 @@
 
 
 lab2::Julian::Julian() {
+    time_t time; k_time(&time); // Init time
 }
 
 lab2::Julian::Julian(const Julian& other) {
-}
-
-lab2::Julian::~Julian() {
 }
 
 lab2::Julian& lab2::Julian::operator=(const Julian& rhs) {

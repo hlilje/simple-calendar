@@ -10,7 +10,13 @@ namespace lab2 {
             unsigned int _month;
             unsigned int _day;
 
+            // Convert given Gregorian date to Julian Day Number.
+            long gregorian_date_to_jdn(const long year, const long month,
+                                       const long day);
+
         public:
+            WesternDate() = default;
+            WesternDate(const WesternDate& other);
             ~WesternDate() override {};
 
             int year();
