@@ -18,6 +18,8 @@ namespace lab2 {
         public:
             Julian();
             Julian(const Julian & other);
+            Julian(const unsigned int year, const unsigned int month,
+                   const unsigned int day);
             ~Julian() override {};
 
             Julian & operator=(const Julian& rhs);

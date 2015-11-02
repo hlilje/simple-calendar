@@ -17,6 +17,12 @@ lab2::Julian::Julian() {
     _day = day;
 }
 
+lab2::Julian::Julian(const unsigned int year,
+                     const unsigned int month,
+                     const unsigned int day) {
+    _offset = 0;
+}
+
 lab2::Julian::Julian(const Julian & other) : WesternDate(other) {}
 
 lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {

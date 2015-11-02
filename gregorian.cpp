@@ -11,6 +11,13 @@ lab2::Gregorian::Gregorian() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
 
+lab2::Gregorian::Gregorian(const unsigned int year,
+                           const unsigned int month,
+                           const unsigned int day) :
+    WesternDate(year, month, day) {
+    _offset = gregorian_date_to_jdn(_year, _month, _day);
+}
+
 lab2::Gregorian::Gregorian(const Gregorian & other) : WesternDate(other) {}
 
 lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
