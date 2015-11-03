@@ -90,9 +90,9 @@ bool lab2::Calendar<DateType>::remove_event(
 }
 
 template <typename DateType>
-std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
+std::ostream & lab2::operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
     os << "BEGIN:VCALENDAR" << std::endl << "VERSION:2.0" << std::endl;
-    for(auto it = _events.find(_date); it != _events.end(); ++it) {
+    for(auto it = rhs._events.find(rhs._date); it != rhs._events.end(); ++it) {
         for(const std::string & desc : it->second) {
             os << "BEGIN:VEVENT" << std::endl;
             os << "DTSTART:" << it->first.year();
