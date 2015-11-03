@@ -63,7 +63,7 @@ bool lab2::Calendar<DateType>::add_event(
             }
         }
 
-        _events[date].push_back(text);
+        _events[date].insert(text);
     } catch (std::invalid_argument e) {
         return false;
     }
@@ -81,12 +81,10 @@ bool lab2::Calendar<DateType>::remove_event(
     try {
         date = DateType(year, month, day);
 
-        if (_events.count(date) > 0) {
-            auto & vec = _events[date];
-            vec.erase(std::remove(vec.begin(), vec.end(), text), vec.end());
-        } else {
+        if (_events.count(date) > 0)
+            _events[date].erase(text);
+        else
             return false;
-        }
     } catch (std::invalid_argument e) {
         return false;
     }

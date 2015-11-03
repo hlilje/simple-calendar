@@ -5,7 +5,7 @@
 #include <iostream>
 #include <limits>
 #include <map>
-#include <vector>
+#include <unordered_set>
 
 #define UNSET std::numeric_limits<unsigned int>::max()
 
@@ -19,7 +19,7 @@ namespace lab2 {
     class Calendar {
         private:
             DateType _date;
-            std::map<DateType, std::vector<std::string>> _events;
+            std::map<DateType, std::unordered_set<std::string>> _events;
 
         public:
             Calendar();
