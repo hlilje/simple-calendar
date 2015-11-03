@@ -22,7 +22,7 @@ namespace lab2 {
                    const unsigned int day);
             ~Julian() override {};
 
-            Julian & operator=(const Julian& rhs);
+            Julian & operator=(const Julian & rhs);
             Julian operator++(int);
             Julian operator--(int);
 

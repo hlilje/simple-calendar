@@ -14,18 +14,18 @@ namespace lab2 {
 
         public:
             Calendar();
-            Calendar(const Calendar& other);
-            ~Calendar();
+            Calendar(const Calendar & other);
+            ~Calendar() {};
+
+            Calendar & operator=(const Calendar & rhs);
 
             bool set_date(const unsigned int year,
                           const unsigned int month,
                           const unsigned int day);
-
             bool add_event(const std::string text,
                            const unsigned int year = UNSET,
                            const unsigned int month = UNSET,
                            const unsigned int day = UNSET);
-
             bool remove_event(const std::string text,
                               const unsigned int year = UNSET,
                               const unsigned int month = UNSET,
