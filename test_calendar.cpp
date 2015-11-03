@@ -5,7 +5,7 @@
 using namespace lab2;
 
 
-class CalendarSuite : public CxxTest::TestSuite {
+class CalendarTestSuite : public CxxTest::TestSuite {
     public:
         void test_default_init() {
             time_t tp;
