@@ -47,3 +47,11 @@ bool lab2::Calendar<DateType>::remove_event(
         const unsigned int day) {
 
 }
+
+
+template <typename DateType>
+std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
+    os << "BEGIN:VCALENDAR" << std::endl << "VERSION:2.0" << std::endl;
+    
+    os << "END:VCALENDAR" << std::endl;
+}
