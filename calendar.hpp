@@ -21,15 +21,15 @@ namespace lab2 {
                           const unsigned int month,
                           const unsigned int day);
 
-            bool dd_event(const std::string text,
-                          const unsigned int year = UNSET,
-                          const unsigned int month = UNSET,
-                          const unsigned int day = UNSET);
+            bool add_event(const std::string text,
+                           const unsigned int year = UNSET,
+                           const unsigned int month = UNSET,
+                           const unsigned int day = UNSET);
 
-            bool emove_event(const std::string text,
-                             const unsigned int year = UNSET,
-                             const unsigned int month = UNSET,
-                             const unsigned int day = UNSET);
+            bool remove_event(const std::string text,
+                              const unsigned int year = UNSET,
+                              const unsigned int month = UNSET,
+                              const unsigned int day = UNSET);
     };
 
     template <typename DateType>
