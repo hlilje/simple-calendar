@@ -12,6 +12,9 @@
 
 namespace lab2 {
     template <typename DateType>
+    std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs);
+
+    template <typename DateType>
     class Calendar {
         private:
             DateType _date;
@@ -35,10 +38,10 @@ namespace lab2 {
                               const unsigned int year = UNSET,
                               const unsigned int month = UNSET,
                               const unsigned int day = UNSET);
-    };
 
-    template <typename DateType>
-    std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs);
+            //template <typename DateType>
+            friend std::ostream & operator<< <>(std::ostream & os, const Calendar<DateType> & rhs);
+    };
 }
 
 #include "calendar.cpp"
