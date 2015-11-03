@@ -314,32 +314,30 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             Calendar<Gregorian> g_cal;
             g_cal.set_date(2000, 1, 1);
 
-            TS_ASSERT(g_cal.add_event("Coded", 1984, 1, 1));
-            TS_ASSERT(g_cal.add_event("Code", 2015, 12, 24));
-            TS_ASSERT(g_cal.add_event("Code some more", 2016, 1, 1));
-            TS_ASSERT(!g_cal.add_event("Programming", 2000, 99, 1)); // Fails
-            TS_ASSERT(g_cal.add_event("Code some more", 2016, 1, 1));
-            TS_ASSERT(!g_cal.add_event("Code", 2015, 12, 24)); // Fails
+            TS_ASSERT(g_cal.add_event("Coded", 1, 1, 1984));
+            TS_ASSERT(g_cal.add_event("Code", 24, 12, 2015));
+            TS_ASSERT(g_cal.add_event("Code some more", 1, 1, 2016));
+            TS_ASSERT(!g_cal.add_event("Programming", 1, 99, 2000)); // Fails
+            TS_ASSERT(!g_cal.add_event("Code", 24, 12, 2015)); // Fails
 
             TS_ASSERT(g_cal.add_event("Programming session", 1));
             TS_ASSERT(!g_cal.add_event("Programming session", 1)); // Fails
-            TS_ASSERT(g_cal.add_event("Hack", 8, 1));
-            TS_ASSERT(!g_cal.add_event("Hack", 8, 1)); // Fails
+            TS_ASSERT(g_cal.add_event("Hack", 1, 8));
+            TS_ASSERT(!g_cal.add_event("Hack", 1, 8)); // Fails
 
             Calendar<Julian> j_cal;
             j_cal.set_date(2000, 1, 1);
 
-            TS_ASSERT(j_cal.add_event("Coded", 1984, 1, 1));
-            TS_ASSERT(j_cal.add_event("Code", 2015, 12, 24));
-            TS_ASSERT(j_cal.add_event("Code some more", 2016, 1, 1));
-            TS_ASSERT(!j_cal.add_event("Programming", 2000, 99, 1)); // Fails
-            TS_ASSERT(j_cal.add_event("Code some more", 2016, 1, 1));
-            TS_ASSERT(!j_cal.add_event("Code", 2015, 12, 24)); // Fails
+            TS_ASSERT(j_cal.add_event("Coded", 1, 1, 1984));
+            TS_ASSERT(j_cal.add_event("Code", 24, 12, 2015));
+            TS_ASSERT(j_cal.add_event("Code some more", 1, 1, 2016));
+            TS_ASSERT(!j_cal.add_event("Programming", 1, 99, 2000)); // Fails
+            TS_ASSERT(!j_cal.add_event("Code", 24, 12, 2015)); // Fails
 
             TS_ASSERT(j_cal.add_event("Programming session", 1));
             TS_ASSERT(!j_cal.add_event("Programming session", 1)); // Fails
-            TS_ASSERT(j_cal.add_event("Hack", 8, 1));
-            TS_ASSERT(!j_cal.add_event("Hack", 8, 1)); // Fails
+            TS_ASSERT(j_cal.add_event("Hack", 1, 8));
+            TS_ASSERT(!j_cal.add_event("Hack", 1, 8)); // Fails
         }
 
         void test_calendar_remove() {
@@ -348,27 +346,27 @@ class CalendarTestSuite : public CxxTest::TestSuite {
 
             g_cal.add_event("Event 1", 1);
             g_cal.add_event("Event 2", 1, 1);
-            g_cal.add_event("Event 3", 2010, 1, 1);
+            g_cal.add_event("Event 3", 1, 1, 2010);
 
             TS_ASSERT(g_cal.remove_event("Event 1", 1));
             TS_ASSERT(g_cal.remove_event("Event 2", 1, 1));
-            TS_ASSERT(g_cal.remove_event("Event 3", 2010, 1, 1));
+            TS_ASSERT(g_cal.remove_event("Event 3", 1, 1, 2010));
             TS_ASSERT(!g_cal.remove_event("Event 1", 1)); // Fails
             TS_ASSERT(!g_cal.remove_event("Event 2", 1, 1)); // Fails
-            TS_ASSERT(!g_cal.remove_event("Event 3", 2010, 1, 1)); // Fails
+            TS_ASSERT(!g_cal.remove_event("Event 3", 1, 1, 2010)); // Fails
 
             Calendar<Julian> j_cal;
             j_cal.set_date(2000, 1, 1);
 
             j_cal.add_event("Event 1", 1);
             j_cal.add_event("Event 2", 1, 1);
-            j_cal.add_event("Event 3", 2010, 1, 1);
+            j_cal.add_event("Event 3", 1, 1, 2010);
 
             TS_ASSERT(j_cal.remove_event("Event 1", 1));
             TS_ASSERT(j_cal.remove_event("Event 2", 1, 1));
-            TS_ASSERT(j_cal.remove_event("Event 3", 2010, 1, 1));
+            TS_ASSERT(j_cal.remove_event("Event 3", 1, 1, 2010));
             TS_ASSERT(!j_cal.remove_event("Event 1", 1)); // Fails
             TS_ASSERT(!j_cal.remove_event("Event 2", 1, 1)); // Fails
-            TS_ASSERT(!j_cal.remove_event("Event 3", 2010, 1, 1)); // Fails
+            TS_ASSERT(!j_cal.remove_event("Event 3", 1, 1, 2010)); // Fails
         }
 };

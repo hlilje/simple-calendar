@@ -32,13 +32,13 @@ namespace lab2 {
                           const unsigned int month,
                           const unsigned int day);
             bool add_event(const std::string text,
-                           const unsigned int year = UNSET,
+                           const unsigned int day = UNSET,
                            const unsigned int month = UNSET,
-                           const unsigned int day = UNSET);
+                           const unsigned int year = UNSET);
             bool remove_event(const std::string text,
-                              const unsigned int year = UNSET,
+                              const unsigned int day = UNSET,
                               const unsigned int month = UNSET,
-                              const unsigned int day = UNSET);
+                              const unsigned int year = UNSET);
 
             //template <typename DateType>
             friend std::ostream & operator<< <>(std::ostream & os, const Calendar<DateType> & rhs);

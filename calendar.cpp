@@ -44,9 +44,9 @@ bool lab2::Calendar<DateType>::set_date(
 template <typename DateType>
 bool lab2::Calendar<DateType>::add_event(
         const std::string text,
-        const unsigned int year,
+        const unsigned int day,
         const unsigned int month,
-        const unsigned int day) {
+        const unsigned int year) {
     DateType date;
     unsigned int set_year = year;
     unsigned int set_month = month;
@@ -74,9 +74,9 @@ bool lab2::Calendar<DateType>::add_event(
 template <typename DateType>
 bool lab2::Calendar<DateType>::remove_event(
         const std::string text,
-        const unsigned int year,
+        const unsigned int day,
         const unsigned int month,
-        const unsigned int day) {
+        const unsigned int year) {
     DateType date;
     try {
         date = DateType(year, month, day);
