@@ -52,7 +52,7 @@ bool lab2::Calendar<DateType>::add_event(
         if (day == UNSET) day = _date.day();
         date = DateType(year, month, day);
 
-        if (_events.count(text) > 0) {
+        if (_events.count(date) > 0) {
             for (const auto& t : _events[date]) {
                 if (t == text) return false;
             }
@@ -72,6 +72,21 @@ bool lab2::Calendar<DateType>::remove_event(
         const unsigned int year,
         const unsigned int month,
         const unsigned int day) {
+    DateType date;
+    try {
+        date = DateType(year, month, day);
+
+        if (_events.count(date) > 0) {
+            auto & vec = _events[date];
+            vec.erase(std::remove(vec.begin(), vec.end(), text), vec.end());
+        } else {
+            return false;
+        }
+    } catch (std::invalid_argument e) {
+        return false;
+    }
+
+    return true;
 }
 
 template <typename DateType>
