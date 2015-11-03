@@ -302,10 +302,12 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(cal.add_event("Tenta", 11, 1, 2016));
             TS_ASSERT(cal.add_event("Julafton", 24, 12));
             TS_ASSERT(cal.add_event("Snö", 28));
+            TS_ASSERT(cal.add_event("Igår", 2, 11, 2015));
 
             TS_ASSERT(!cal.add_event("Tenta", 11, 1, 2016));
             TS_ASSERT(!cal.add_event("Julafton", 24, 12, 2015));
             TS_ASSERT(!cal.add_event("Snö", 28, 11, 2015));
+            TS_ASSERT(!cal.add_event("Igår", 2));
 
             std::cout << cal;
         }
