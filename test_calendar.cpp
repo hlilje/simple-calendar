@@ -298,14 +298,14 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             set_k_time(tp);
 
             Calendar<Gregorian> cal;
-            TS_ASSERT(cal.set_date(2015, 11, 3) == true);
-            TS_ASSERT(cal.add_event("Tenta", 11, 1, 2016) == true);
-            TS_ASSERT(cal.add_event("Julafton", 24, 12) == true);
-            TS_ASSERT(cal.add_event("Snö", 28) == true);
+            TS_ASSERT(cal.set_date(2015, 11, 3));
+            TS_ASSERT(cal.add_event("Tenta", 11, 1, 2016));
+            TS_ASSERT(cal.add_event("Julafton", 24, 12));
+            TS_ASSERT(cal.add_event("Snö", 28));
 
-            TS_ASSERT(cal.add_event("Tenta", 11, 1, 2016) == false);
-            TS_ASSERT(cal.add_event("Julafton", 24, 12, 2015) == false);
-            TS_ASSERT(cal.add_event("Tenta", 28, 12, 2015) == false);
+            TS_ASSERT(!cal.add_event("Tenta", 11, 1, 2016));
+            TS_ASSERT(!cal.add_event("Julafton", 24, 12, 2015));
+            TS_ASSERT(!cal.add_event("Snö", 28, 11, 2015));
 
             std::cout << cal;
         }
