@@ -1,3 +1,6 @@
+#pragma once
+
+#include "kattistime.h"
 #include <iostream>
 #include <limits>
 #include <map>
@@ -10,6 +13,7 @@ namespace lab2 {
     template <typename DateType>
     class Calendar {
         private:
+            DateType _date;
             std::map<DateType, std::vector<std::string>> _events;
 
         public:
