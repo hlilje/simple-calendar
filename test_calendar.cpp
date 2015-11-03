@@ -301,12 +301,44 @@ class CalendarTestSuite : public CxxTest::TestSuite {
 
             TS_ASSERT(g_cal.set_date(2000, 10, 10));
 
-            TS_ASSERT_THROWS(g_cal.set_date(2000, 100, 10), std::invalid_argument);
+            TS_ASSERT(!g_cal.set_date(2000, 100, 10)); // Fails
 
             Calendar<Julian> j_cal;
 
             TS_ASSERT(j_cal.set_date(2015, 1, 1));
 
-            TS_ASSERT_THROWS(j_cal.set_date(2000, 10, 100), std::invalid_argument);
+            TS_ASSERT(!j_cal.set_date(2000, 10, 100)); // Fails
+        }
+
+        void test_calendar_add() {
+            Calendar<Gregorian> g_cal;
+            g_cal.set_date(2000, 1, 1);
+
+            TS_ASSERT(g_cal.add_event("Coded", 1984, 1, 1));
+            TS_ASSERT(g_cal.add_event("Code", 2015, 12, 24));
+            TS_ASSERT(g_cal.add_event("Code some more", 2016, 1, 1));
+            TS_ASSERT(!g_cal.add_event("Programming", 2000, 99, 1)); // Fails
+            TS_ASSERT(g_cal.add_event("Code some more", 2016, 1, 1));
+            TS_ASSERT(!g_cal.add_event("Code", 2015, 12, 24)); // Fails
+
+            TS_ASSERT(g_cal.add_event("Programming session", 1));
+            TS_ASSERT(!g_cal.add_event("Programming session", 1)); // Fails
+            TS_ASSERT(g_cal.add_event("Hack", 8, 1));
+            TS_ASSERT(!g_cal.add_event("Hack", 8, 1)); // Fails
+
+            Calendar<Julian> j_cal;
+            j_cal.set_date(2000, 1, 1);
+
+            TS_ASSERT(j_cal.add_event("Coded", 1984, 1, 1));
+            TS_ASSERT(j_cal.add_event("Code", 2015, 12, 24));
+            TS_ASSERT(j_cal.add_event("Code some more", 2016, 1, 1));
+            TS_ASSERT(!j_cal.add_event("Programming", 2000, 99, 1)); // Fails
+            TS_ASSERT(j_cal.add_event("Code some more", 2016, 1, 1));
+            TS_ASSERT(!j_cal.add_event("Code", 2015, 12, 24)); // Fails
+
+            TS_ASSERT(j_cal.add_event("Programming session", 1));
+            TS_ASSERT(!j_cal.add_event("Programming session", 1)); // Fails
+            TS_ASSERT(j_cal.add_event("Hack", 8, 1));
+            TS_ASSERT(!j_cal.add_event("Hack", 8, 1)); // Fails
         }
 };
