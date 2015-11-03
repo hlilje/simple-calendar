@@ -68,6 +68,7 @@ std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
         }
     }
     os << "END:VCALENDAR" << std::endl;
+    return os;
 }
 
 #endif
