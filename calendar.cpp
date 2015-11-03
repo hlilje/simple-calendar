@@ -23,6 +23,8 @@ template <typename DateType> lab2::Calendar<DateType> &
 lab2::Calendar<DateType>::operator=(const Calendar<DateType> & rhs) {
     _date = rhs._date;
     _events = rhs._events;
+
+    return *this;
 }
 
 template <typename DateType>
@@ -46,11 +48,14 @@ bool lab2::Calendar<DateType>::add_event(
         const unsigned int month,
         const unsigned int day) {
     DateType date;
+    unsigned int set_year = year;
+    unsigned int set_month = month;
+    unsigned int set_day = day;
     try {
-        if (year == UNSET) year = _date.year();
-        if (month == UNSET) month = _date.month();
-        if (day == UNSET) day = _date.day();
-        date = DateType(year, month, day);
+        if (year == UNSET) set_year = _date.year();
+        if (month == UNSET) set_month = _date.month();
+        if (day == UNSET) set_day = _date.day();
+        date = DateType(set_year, set_month, set_day);
 
         if (_events.count(date) > 0) {
             for (const auto& t : _events[date]) {
