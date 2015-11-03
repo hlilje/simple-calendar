@@ -67,6 +67,7 @@ bool lab2::Calendar<DateType>::add_event(
 
         return true;
     } catch (std::invalid_argument e) {
+std::cout << "EHURHEURHEUHRUEHRUH " << text << std::endl;
         return false;
     }
 }
