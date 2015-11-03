@@ -17,6 +17,7 @@ namespace lab2 {
         public:
             Julian();
             Julian(const Date & other);
+            Julian(const Date * const other);
             Julian(const unsigned int year, const unsigned int month,
                    const unsigned int day);
             ~Julian() override {};

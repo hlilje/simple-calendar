@@ -24,6 +24,8 @@ lab2::Julian::Julian(const unsigned int year,
 
 lab2::Julian::Julian(const Date & other) : WesternDate(other) { jdn_to_date(); }
 
+lab2::Julian::Julian(const Date * const other) : WesternDate(other) { jdn_to_date(); }
+
 void lab2::Julian::date_to_jdn() {
     const unsigned int a = (14 - _month) / 12;
     const unsigned int y = _year + 4800 - a;

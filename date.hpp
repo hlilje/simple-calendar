@@ -10,6 +10,7 @@ namespace lab2 {
 
             Date() = default;
             Date(const Date & other);
+            Date(const Date * const other);
 
         public:
             virtual ~Date() {};

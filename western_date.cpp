@@ -4,6 +4,9 @@
 lab2::WesternDate::WesternDate(const Date & other) :
     Date(other) {}
 
+lab2::WesternDate::WesternDate(const Date * const other) :
+    Date(other) {}
+
 lab2::WesternDate::WesternDate(const unsigned int year,
                                const unsigned int month,
                                const unsigned int day) :

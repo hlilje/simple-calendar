@@ -16,6 +16,7 @@ namespace lab2 {
                         const unsigned int month,
                         const unsigned int day);
             WesternDate(const Date & other);
+            WesternDate(const Date * const other);
 
             // Return true if the current year is a leap year.
             virtual bool is_leap_year() const = 0;

@@ -22,6 +22,8 @@ lab2::Gregorian::Gregorian(const unsigned int year,
 
 lab2::Gregorian::Gregorian(const Date & other) : WesternDate(other) { jdn_to_date(); }
 
+lab2::Gregorian::Gregorian(const Date * const other) : WesternDate(other) { jdn_to_date(); }
+
 void lab2::Gregorian::date_to_jdn() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
