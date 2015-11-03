@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEMPLATE_CALENDAR_HPP
+#define TEMPLATE_CALENDAR_HPP
 
 #include "kattistime.h"
 #include <iostream>
@@ -39,3 +40,6 @@ namespace lab2 {
     template <typename DateType>
     std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs);
 }
+
+#include "calendar.cpp"
+#endif

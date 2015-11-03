@@ -1,3 +1,6 @@
+#ifndef TEMPLATE_CALENDAR_CPP
+#define TEMPLATE_CALENDAR_CPP
+
 #include "calendar.hpp"
 
 
@@ -66,3 +69,5 @@ std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
     }
     os << "END:VCALENDAR" << std::endl;
 }
+
+#endif
