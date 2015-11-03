@@ -291,4 +291,22 @@ class CalendarTestSuite : public CxxTest::TestSuite {
 
             j3_cal = g1_cal;
         }
+
+        void test_calendar_set() {
+            time_t tp;
+            time(&tp);
+            set_k_time(tp);
+
+            Calendar<Gregorian> g_cal;
+
+            TS_ASSERT(g_cal.set_date(2000, 10, 10));
+
+            TS_ASSERT_THROWS(g_cal.set_date(2000, 100, 10), std::invalid_argument);
+
+            Calendar<Julian> j_cal;
+
+            TS_ASSERT(j_cal.set_date(2015, 1, 1));
+
+            TS_ASSERT_THROWS(j_cal.set_date(2000, 10, 100), std::invalid_argument);
+        }
 };
