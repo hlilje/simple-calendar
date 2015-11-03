@@ -48,10 +48,21 @@ bool lab2::Calendar<DateType>::remove_event(
 
 }
 
-
 template <typename DateType>
 std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs) {
     os << "BEGIN:VCALENDAR" << std::endl << "VERSION:2.0" << std::endl;
-    
+    for(auto it = _events.find(_date); it != _events.end(); ++it) {
+        for(const std::string & desc : it->second) {
+            os << "BEGIN:VEVENT" << std::endl;
+            os << "DTSTART:" << it->first.year();
+            if(it->first.month() < 10) os << "0";
+            os << it->first.month();
+            if(it->first.day() < 10) os << "0";
+            os << it->first.day();
+            os << std::endl;
+            os << "SUMMARY:" << desc << std::endl;
+            os << "END:VEVENT" << std::endl;
+        }
+    }
     os << "END:VCALENDAR" << std::endl;
 }
