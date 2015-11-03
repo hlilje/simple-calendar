@@ -1,3 +1,4 @@
+#include "calendar.hpp"
 #include "gregorian.hpp"
 #include "julian.hpp"
 #include <cxxtest/TestSuite.h>
@@ -256,5 +257,38 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j7.year(), 2000);
             TS_ASSERT_EQUALS((int) j7.month(), 10);
             TS_ASSERT_EQUALS((int) j7.day(), 1);
+        }
+
+        void test_calendar_default_init() {
+            time_t tp;
+            time(&tp);
+            set_k_time(tp);
+
+            Calendar<Gregorian> g_cal;
+
+            Calendar<Julian> j_cal;
+        }
+
+        void test_calendar_copy_init() {
+            time_t tp;
+            time(&tp);
+            set_k_time(tp);
+
+            Calendar<Gregorian> g1_cal;
+
+            Calendar<Julian> j1_cal;
+
+            Calendar<Gregorian> g2_cal(g1_cal);
+
+            Calendar<Julian> j2_cal(j1_cal);
+
+            // TODO
+            //Calendar<Gregorian> g3_cal(j1_cal);
+
+            Calendar<Gregorian> j3_cal(g1_cal);
+
+            //g3_cal = g1_cal;
+
+            j3_cal = g1_cal;
         }
 };
