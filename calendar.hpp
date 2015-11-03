@@ -11,6 +11,7 @@
 
 
 namespace lab2 {
+    template <typename DateType> class Calendar;
     template <typename DateType>
     std::ostream & operator<<(std::ostream & os, const Calendar<DateType> & rhs);
 
