@@ -2,10 +2,12 @@
 
 
 lab2::WesternDate::WesternDate(const Date & other) :
-    Date(other) {}
+    Date(other), _year(other.year()), _month(other.month()),
+    _day(other.day()) {}
 
 lab2::WesternDate::WesternDate(const Date * const other) :
-    Date(other) {}
+    Date(other), _year(other->year()), _month(other->month()),
+    _day(other->day()) {}
 
 lab2::WesternDate::WesternDate(const unsigned int year,
                                const unsigned int month,
