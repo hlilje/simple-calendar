@@ -64,11 +64,9 @@ void lab2::Julian::date_to_jdn() {
     _offset = _day + ((153 * m + 2) / 5) + (365 * y) + (y / 4) - 32083;
 }
 
-lab2::Julian & lab2::Julian::operator=(const Julian & rhs) {
-    _offset = rhs._offset;
-    _year = rhs._year;
-    _month = rhs._month;
-    _day = rhs._day;
+lab2::Julian & lab2::Julian::operator=(const Date & rhs) {
+    Date::operator=(rhs);
+    jdn_to_date();
 
     return *this;
 }

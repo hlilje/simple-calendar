@@ -18,6 +18,8 @@ namespace lab2 {
             WesternDate(const Date & other);
             WesternDate(const Date * const other);
 
+            WesternDate & operator=(const Date & rhs) override;
+
             // Return true if the current year is a leap year.
             virtual bool is_leap_year() const = 0;
             // Return true if the date is valid

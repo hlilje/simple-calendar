@@ -15,6 +15,8 @@ namespace lab2 {
         public:
             virtual ~Date() {};
 
+            virtual Date & operator=(const Date & rhs);
+
             virtual long operator-(const Date & rhs) const;
 
             virtual Date & operator++() = 0;

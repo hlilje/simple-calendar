@@ -22,7 +22,7 @@ namespace lab2 {
                       const unsigned int day);
             ~Gregorian() override {};
 
-            Gregorian & operator=(const Gregorian & rhs);
+            Gregorian & operator=(const Date & rhs) override;
             Gregorian operator++(int);
             Gregorian operator--(int);
 

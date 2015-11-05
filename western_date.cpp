@@ -10,6 +10,10 @@ lab2::WesternDate::WesternDate(const unsigned int year,
                                const unsigned int day) :
     _year(year), _month(month), _day(day) {}
 
+lab2::WesternDate & lab2::WesternDate::operator=(const Date & rhs) {
+    return *this;
+};
+
 bool lab2::WesternDate::is_valid_date() const {
     if(_month > 12 || _month < 1 || _day < 1 || _day > days_this_month())
         return false;

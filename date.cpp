@@ -5,6 +5,11 @@ lab2::Date::Date(const Date & other) : _offset(other._offset) {};
 
 lab2::Date::Date(const Date * const other) : _offset(other->_offset) {};
 
+lab2::Date & lab2::Date::operator=(const Date & rhs) {
+    _offset = rhs._offset;
+    return *this;
+};
+
 long lab2::Date::operator-(const Date & rhs) const {
     return _offset - rhs._offset;
 }

@@ -60,11 +60,9 @@ void lab2::Gregorian::date_to_jdn() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
 
-lab2::Gregorian & lab2::Gregorian::operator=(const Gregorian & rhs) {
-    _offset = rhs._offset;
-    _year = rhs._year;
-    _month = rhs._month;
-    _day = rhs._day;
+lab2::Gregorian & lab2::Gregorian::operator=(const Date & rhs) {
+    Date::operator=(rhs);
+    jdn_to_date();
 
     return *this;
 }

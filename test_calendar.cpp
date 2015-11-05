@@ -2,6 +2,7 @@
 #include "gregorian.hpp"
 #include "julian.hpp"
 #include <cxxtest/TestSuite.h>
+#include <vector>
 
 using namespace lab2;
 
@@ -96,6 +97,67 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j.year(), 1977);
             TS_ASSERT_EQUALS((int) j.month(), 2);
             TS_ASSERT_EQUALS((int) j.day(), 20);
+        }
+
+        void test_date_pointer_minimal() {
+            set_k_time(226403380);
+            Julian * jp = new Julian();
+
+            set_k_time(0);
+            Date * dp = new Julian();
+            *dp = *jp;
+            TS_ASSERT_EQUALS((int) dp->year(), 1977);
+            TS_ASSERT_EQUALS((int) dp->month(), 2);
+            TS_ASSERT_EQUALS((int) dp->day(), 20);
+
+            delete jp;
+            delete dp;
+        }
+
+        void test_date_pointers() {
+            set_k_time(226403380);
+            Julian j;
+            Date * dp = &j;
+            Julian * jp = new Julian();
+            TS_ASSERT_EQUALS((int) dp->year(), 1977);
+            TS_ASSERT_EQUALS((int) dp->month(), 2);
+            TS_ASSERT_EQUALS((int) dp->day(), 20);
+
+            *jp = *dp;
+            TS_ASSERT_EQUALS((int) jp->year(), 1977);
+            TS_ASSERT_EQUALS((int) jp->month(), 2);
+            TS_ASSERT_EQUALS((int) jp->day(), 20);
+
+            set_k_time(0);
+
+            Date * dnp = new Julian();
+            *dnp = *jp;
+            TS_ASSERT_EQUALS((int) dnp->year(), 1977);
+            TS_ASSERT_EQUALS((int) dnp->month(), 2);
+            TS_ASSERT_EQUALS((int) dnp->day(), 20);
+
+            std::vector<Date *> v;
+            for(int i = 0; i < 5; ++i)
+                v.push_back(new Julian());
+            v.push_back(jp);
+            v.push_back(dp);
+
+            TS_ASSERT_EQUALS((int) v[5]->year(), 1977);
+            TS_ASSERT_EQUALS((int) v[5]->month(), 2);
+            TS_ASSERT_EQUALS((int) v[5]->day(), 20);
+            TS_ASSERT_EQUALS((int) v[6]->year(), 1977);
+            TS_ASSERT_EQUALS((int) v[6]->month(), 2);
+            TS_ASSERT_EQUALS((int) v[6]->day(), 20);
+
+            *v[2] = *jp;
+            TS_ASSERT_EQUALS((int) v[2]->year(), 1977);
+            TS_ASSERT_EQUALS((int) v[2]->month(), 2);
+            TS_ASSERT_EQUALS((int) v[2]->day(), 20);
+
+            for(int i = 0; i < 5; ++i)
+                delete v[i];
+            delete dnp;
+            delete jp;
         }
 
         void test_date_constructors() {
