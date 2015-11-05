@@ -83,6 +83,19 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j.year(), 1977);
             TS_ASSERT_EQUALS((int) j.month(), 2);
             TS_ASSERT_EQUALS((int) j.day(), 20);
+            j = *hp;
+            TS_ASSERT_EQUALS((int) j.year(), 1977);
+            TS_ASSERT_EQUALS((int) j.month(), 2);
+            TS_ASSERT_EQUALS((int) j.day(), 20);
+            Gregorian g(jp);
+            TS_ASSERT_EQUALS((int) g.year(), 1977);
+            TS_ASSERT_EQUALS((int) g.month(), 3);
+            TS_ASSERT_EQUALS((int) g.day(), 5);
+            Gregorian * gp = &g;
+            j = *gp;
+            TS_ASSERT_EQUALS((int) j.year(), 1977);
+            TS_ASSERT_EQUALS((int) j.month(), 2);
+            TS_ASSERT_EQUALS((int) j.day(), 20);
         }
 
         void test_date_constructors() {
