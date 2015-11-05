@@ -24,6 +24,34 @@ lab2::Gregorian::Gregorian(const Date & other) : WesternDate(other) { jdn_to_dat
 
 lab2::Gregorian::Gregorian(const Date * const other) : WesternDate(other) { jdn_to_date(); }
 
+bool lab2::Gregorian::is_leap_year() const {
+    return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
+}
+
+void lab2::Gregorian::jdn_to_date() {
+    long jdn = _offset;
+    unsigned int y = 4716;
+    unsigned int j = 1401;
+    unsigned int m = 2;
+    unsigned int n = 12;
+    unsigned int r = 4;
+    unsigned int p = 1461;
+    unsigned int v = 3;
+    unsigned int u = 5;
+    unsigned int s = 153;
+    unsigned int w = 2;
+    unsigned long B = 274277;
+    unsigned int C = 38;
+
+    unsigned long f = jdn + j + (((((4 * jdn) + B) / 146097) * 3) / 4) - C;
+    unsigned long e = (r * f) + v;
+    unsigned long g = (e % p) / r;
+    unsigned long h = (u * g) + w;
+    _day = ((h % s) / u) + 1;
+    _month = (((h / s) + m) % n) + 1;
+    _year = (e / p) - y + ((n + m - _month) / n);
+}
+
 void lab2::Gregorian::date_to_jdn() {
     _offset = gregorian_date_to_jdn(_year, _month, _day);
 }
@@ -75,30 +103,34 @@ lab2::Gregorian & lab2::Gregorian::operator-=(const long rhs) {
     return *this;
 }
 
-bool lab2::Gregorian::is_leap_year() const {
-    return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);
+void lab2::Gregorian::add_year(int n) {
+    _year += n;
+
+    const unsigned int dtm = days_this_month();
+    if (_day > dtm) _day = dtm;
+
+    date_to_jdn();
 }
 
-void lab2::Gregorian::jdn_to_date() {
-    long jdn = _offset;
-    unsigned int y = 4716;
-    unsigned int j = 1401;
-    unsigned int m = 2;
-    unsigned int n = 12;
-    unsigned int r = 4;
-    unsigned int p = 1461;
-    unsigned int v = 3;
-    unsigned int u = 5;
-    unsigned int s = 153;
-    unsigned int w = 2;
-    unsigned long B = 274277;
-    unsigned int C = 38;
+void lab2::Gregorian::add_month(int n) {
+    const int years = n / 12;
+    const int months = n % 12;
+    const int new_month = _month + months;
 
-    unsigned long f = jdn + j + (((((4 * jdn) + B) / 146097) * 3) / 4) - C;
-    unsigned long e = (r * f) + v;
-    unsigned long g = (e % p) / r;
-    unsigned long h = (u * g) + w;
-    _day = ((h % s) / u) + 1;
-    _month = (((h / s) + m) % n) + 1;
-    _year = (e / p) - y + ((n + m - _month) / n);
+    _year += years;
+
+    if (new_month > 12) {
+        _month = new_month - 12;
+        ++_year;
+    } else if (new_month < 1) {
+        _month = new_month + 12;
+        --_year;
+    } else {
+        _month += months;
+    }
+
+    const unsigned int dtm = days_this_month();
+    if (_day > dtm) _day = dtm;
+
+    date_to_jdn();
 }

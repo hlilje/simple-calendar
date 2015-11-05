@@ -42,8 +42,6 @@ namespace lab2 {
             std::string week_day_name() const override;
             std::string month_name() const override;
             long mod_julian_day() const override;
-            void add_year(int n = 1) override;
-            void add_month(int n = 1) override;
             unsigned int days_this_month() const override;
             unsigned int months_per_year() const override;
     };

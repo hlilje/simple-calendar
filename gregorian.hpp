@@ -30,5 +30,8 @@ namespace lab2 {
             Gregorian & operator--() override;
             Gregorian & operator+=(const long rhs) override;
             Gregorian & operator-=(const long rhs) override;
+
+            void add_year(int n = 1) override;
+            void add_month(int n = 1) override;
     };
 }

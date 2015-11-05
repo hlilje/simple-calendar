@@ -130,32 +130,3 @@ long lab2::WesternDate::mod_julian_day() const {
 unsigned int lab2::WesternDate::months_per_year() const {
     return 12;
 }
-
-void lab2::WesternDate::add_year(int n) {
-    _year += n;
-
-    const unsigned int dtm = days_this_month();
-    if (_day > dtm) _day = dtm;
-
-    date_to_jdn();
-}
-
-void lab2::WesternDate::add_month(int n) {
-    const int years = n / 12;
-    const int months = n % 12;
-    const int new_month = _month + months;
-
-    _year += years;
-
-    if (new_month > 12) {
-        _month = new_month - 12;
-        ++_year;
-    } else {
-        _month += months;
-    }
-
-    const unsigned int dtm = days_this_month();
-    if (_day > dtm) _day = dtm;
-
-    date_to_jdn();
-}
