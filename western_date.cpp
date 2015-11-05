@@ -52,19 +52,19 @@ unsigned int lab2::WesternDate::days_per_week() const {
 std::string lab2::WesternDate::week_day_name() const {
     switch (week_day()) {
         case 1:
-            return "Monday";
+            return "monday";
         case 2:
-            return "Tuesday";
+            return "tuesday";
         case 3:
-            return "Wednesday";
+            return "wednesday";
         case 4:
-            return "Thursday";
+            return "thursday";
         case 5:
-            return "Friday";
+            return "friday";
         case 6:
-            return "Saturday";
+            return "saturday";
         case 7:
-            return "Sunday";
+            return "sunday";
         default:
             return "";
     }
