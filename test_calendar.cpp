@@ -459,4 +459,44 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j1.month(), 11);
             TS_ASSERT_EQUALS((int) j1.day(), 1);
         }
+
+        void test_copy_various() {
+            Gregorian g1(2400, 2, 29);
+            Julian j1;
+
+            j1 = g1;
+            TS_ASSERT_EQUALS((int) j1.day(), 13);
+            TS_ASSERT_EQUALS((int) j1.month(), 2);
+            TS_ASSERT_EQUALS((int) j1.year(), 2400);
+
+            g1 = j1; g1 = g1;
+            TS_ASSERT_EQUALS((int) g1.day(), 29);
+            TS_ASSERT_EQUALS((int) g1.month(), 2);
+            TS_ASSERT_EQUALS((int) g1.year(), 2400);
+
+            Gregorian g2(1900, 1, 1);
+            Julian j2(g2);
+
+            TS_ASSERT_EQUALS((int) j2.day(), 20);
+            TS_ASSERT_EQUALS((int) j2.month(), 12);
+            TS_ASSERT_EQUALS((int) j2.year(), 1899);
+
+            Gregorian g3(1858, 11, 16);
+            Julian j3(g3);
+
+            TS_ASSERT_EQUALS((int) j3.day(), 4);
+            TS_ASSERT_EQUALS((int) j3.month(), 11);
+            TS_ASSERT_EQUALS((int) j3.year(), 1858);
+            TS_ASSERT_EQUALS(j3.mod_julian_day(), -1);
+            ++j3;
+            TS_ASSERT_EQUALS(j3.mod_julian_day(), 0);
+            j3++;
+            TS_ASSERT_EQUALS(j3.mod_julian_day(), 1);
+
+            Gregorian g4(j3);
+
+            TS_ASSERT_EQUALS((int) g4.day(), 18);
+            TS_ASSERT_EQUALS((int) g4.month(), 11);
+            TS_ASSERT_EQUALS((int) g4.year(), 1858);
+        }
 };
