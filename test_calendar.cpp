@@ -383,4 +383,55 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(!j_cal.remove_event("Event 2", 1, 1)); // Fails
             TS_ASSERT(!j_cal.remove_event("Event 3", 1, 1, 2010)); // Fails
         }
+
+        void test_add_year_negative() {
+            Gregorian g1(2000, 1, 1);
+
+            g1.add_year(-2000);
+            TS_ASSERT_EQUALS(g1.year(), 0);
+            g1.add_year(1);
+            TS_ASSERT_EQUALS(g1.year(), 1);
+            g1.add_year(-2);
+            TS_ASSERT_EQUALS(g1.year(), -1);
+
+            Julian j1(2000, 1, 1);
+
+            j1.add_year(-2000);
+            TS_ASSERT_EQUALS(j1.year(), -1);
+            j1.add_year(1);
+            TS_ASSERT_EQUALS(j1.year(), 1);
+            j1.add_year(-1);
+            TS_ASSERT_EQUALS(j1.year(), -1);
+        }
+
+        void test_add_month_negative() {
+            Gregorian g1(2000, 1, 1);
+
+            g1.add_month(-1);
+            TS_ASSERT_EQUALS((int) g1.year(), 1999);
+            TS_ASSERT_EQUALS((int) g1.month(), 12);
+            TS_ASSERT_EQUALS((int) g1.day(), 1);
+            g1.add_month(-12);
+            TS_ASSERT_EQUALS((int) g1.year(), 1998);
+            TS_ASSERT_EQUALS((int) g1.month(), 12);
+            TS_ASSERT_EQUALS((int) g1.day(), 1);
+            g1.add_month(-13);
+            TS_ASSERT_EQUALS((int) g1.year(), 1997);
+            TS_ASSERT_EQUALS((int) g1.month(), 11);
+            TS_ASSERT_EQUALS((int) g1.day(), 1);
+
+            Julian j1(2000, 1, 1);
+            j1.add_month(-1);
+            TS_ASSERT_EQUALS((int) j1.year(), 1999);
+            TS_ASSERT_EQUALS((int) j1.month(), 12);
+            TS_ASSERT_EQUALS((int) j1.day(), 1);
+            j1.add_month(-12);
+            TS_ASSERT_EQUALS((int) j1.year(), 1998);
+            TS_ASSERT_EQUALS((int) j1.month(), 12);
+            TS_ASSERT_EQUALS((int) j1.day(), 1);
+            j1.add_month(-13);
+            TS_ASSERT_EQUALS((int) j1.year(), 1997);
+            TS_ASSERT_EQUALS((int) j1.month(), 11);
+            TS_ASSERT_EQUALS((int) j1.day(), 1);
+        }
 };
