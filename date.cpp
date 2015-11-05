@@ -34,6 +34,10 @@ bool lab2::Date::operator>=(const Date & rhs) const {
 }
 
 std::ostream & lab2::operator<<(std::ostream & os, const Date & rhs) {
-    os << rhs.year() << "-" << rhs.month() << "-" << rhs.day();
+    os << rhs.year() << "-";
+    if(rhs.month() < 10) os << "0";
+    os << rhs.month() << "-";
+    if(rhs.day() < 10) os << "0";
+    os << rhs.day();
     return os;
 }
