@@ -74,6 +74,17 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS(j1.day(), j4.day());
         }
 
+        void test_pointer_constr_init() {
+            set_k_time(226403380);
+            Julian j;
+            Julian * jp = &j;
+            Julian * hp = jp;
+            j = Julian(*hp);
+            TS_ASSERT_EQUALS((int) j.year(), 1977);
+            TS_ASSERT_EQUALS((int) j.month(), 2);
+            TS_ASSERT_EQUALS((int) j.day(), 20);
+        }
+
         void test_date_constructors() {
             Gregorian g1(1970, 1, 1);
             long mod_jul = 40587;
@@ -303,7 +314,8 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT(!cal.add_event("Snö", 28, 11, 2015));
             TS_ASSERT(!cal.add_event("Igår", 2));
 
-            std::cout << cal;
+            // uncomment this line to test ical format
+            //std::cout << cal;
         }
 
         void test_calendar_set() {
