@@ -275,21 +275,15 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             set_k_time(tp);
 
             Calendar<Gregorian> g1_cal;
-
             Calendar<Julian> j1_cal;
-
             Calendar<Gregorian> g2_cal(g1_cal);
-
             Calendar<Julian> j2_cal(j1_cal);
-
-            // TODO
-            //Calendar<Gregorian> g3_cal(j1_cal);
-
-            Calendar<Gregorian> j3_cal(g1_cal);
-
-            //g3_cal = g1_cal;
-
+            Calendar<Gregorian> g3_cal(j1_cal); // Copy from other type
+            Calendar<Gregorian> j3_cal(g1_cal); // Copy from other type
+            g3_cal = g1_cal;
             j3_cal = g1_cal;
+            g2_cal = j3_cal; // Copy from other type
+            j2_cal = g3_cal; // Copy from other type
         }
 
         void test_ical() {

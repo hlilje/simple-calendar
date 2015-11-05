@@ -23,10 +23,12 @@ namespace lab2 {
 
         public:
             Calendar();
-            Calendar(const Calendar & other);
+            template <typename OtherDateType>
+            Calendar(const Calendar<OtherDateType> & other);
             ~Calendar() {};
 
-            Calendar & operator=(const Calendar & rhs);
+            template <typename OtherDateType>
+            Calendar & operator=(const Calendar<OtherDateType> & rhs);
 
             bool set_date(const unsigned int year,
                           const unsigned int month,
@@ -40,6 +42,7 @@ namespace lab2 {
                               const unsigned int month = UNSET,
                               const unsigned int year = UNSET);
 
+            template <typename OtherDateType> friend class Calendar;
             //template <typename DateType>
             friend std::ostream & operator<< <>(std::ostream & os, const Calendar<DateType> & rhs);
     };

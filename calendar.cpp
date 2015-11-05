@@ -16,13 +16,20 @@ lab2::Calendar<DateType>::Calendar() {
 }
 
 template <typename DateType>
-lab2::Calendar<DateType>::Calendar(const Calendar<DateType> & other) :
-    _date(other._date), _events(other._events) {}
+template <typename OtherDateType>
+lab2::Calendar<DateType>::Calendar(const Calendar<OtherDateType> & other) :
+    _date(other._date) {
+    for (const auto & e : other._events)
+        _events[e.first] = e.second;
+}
 
-template <typename DateType> lab2::Calendar<DateType> &
-lab2::Calendar<DateType>::operator=(const Calendar<DateType> & rhs) {
+template <typename DateType>
+template <typename OtherDateType>
+lab2::Calendar<DateType> &
+lab2::Calendar<DateType>::operator=(const Calendar<OtherDateType> & rhs) {
     _date = rhs._date;
-    _events = rhs._events;
+    for (const auto & e : rhs._events)
+        _events[e.first] = e.second;
 
     return *this;
 }
