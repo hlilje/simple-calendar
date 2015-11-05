@@ -20,9 +20,13 @@ lab2::Gregorian::Gregorian(const unsigned int year,
     date_to_jdn(); // sets _offset
 }
 
-lab2::Gregorian::Gregorian(const Date & other) : WesternDate(other) { jdn_to_date(); }
+lab2::Gregorian::Gregorian(const Date & other) : WesternDate(other) {
+    jdn_to_date();
+}
 
-lab2::Gregorian::Gregorian(const Date * const other) : WesternDate(other) { jdn_to_date(); }
+lab2::Gregorian::Gregorian(const Date * const other) : WesternDate(other) {
+    jdn_to_date();
+}
 
 bool lab2::Gregorian::is_leap_year() const {
     return (_year % 4 == 0) && ((_year % 100) != 0 || (_year % 400) == 0);

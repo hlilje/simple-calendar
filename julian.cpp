@@ -22,9 +22,13 @@ lab2::Julian::Julian(const unsigned int year,
     date_to_jdn(); // sets _offset
 }
 
-lab2::Julian::Julian(const Date & other) : WesternDate(other) { jdn_to_date(); }
+lab2::Julian::Julian(const Date & other) : WesternDate(other) {
+    jdn_to_date();
+}
 
-lab2::Julian::Julian(const Date * const other) : WesternDate(other) { jdn_to_date(); }
+lab2::Julian::Julian(const Date * const other) : WesternDate(other) {
+    jdn_to_date();
+}
 
 bool lab2::Julian::is_leap_year() const {
     return _year % 4 == 0;
