@@ -73,29 +73,29 @@ std::string lab2::WesternDate::week_day_name() const {
 std::string lab2::WesternDate::month_name() const {
     switch (_month) {
         case 1:
-            return "January";
+            return "january";
         case 2:
-            return "February";
+            return "february";
         case 3:
-            return "March";
+            return "march";
         case 4:
-            return "April";
+            return "april";
         case 5:
-            return "May";
+            return "may";
         case 6:
-            return "June";
+            return "june";
         case 7:
-            return "July";
+            return "july";
         case 8:
-            return "August";
+            return "august";
         case 9:
-            return "September";
+            return "september";
         case 10:
-            return "October";
+            return "october";
         case 11:
-            return "November";
+            return "november";
         case 12:
-            return "December";
+            return "december";
         default:
             return "";
     }
