@@ -522,6 +522,14 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             TS_ASSERT_EQUALS((int) j1.day(), 1);
         }
 
+        void test_add_month_minimum() {
+            Julian j(2341, 6, 29);
+            j.add_month(-8);
+            TS_ASSERT_EQUALS((int) j.year(), 2340);
+            TS_ASSERT_EQUALS((int) j.month(), 10);
+            TS_ASSERT_EQUALS((int) j.day(), 29); // 27????
+        }
+
         void test_copy_various() {
             Gregorian g1(2400, 2, 29);
             Julian j1;
