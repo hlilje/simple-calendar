@@ -372,6 +372,52 @@ class CalendarTestSuite : public CxxTest::TestSuite {
             j2_cal = g3_cal; // Copy from other type
         }
 
+        void test_calendar_copy_value() {
+            time_t tp;
+            time(&tp);
+            set_k_time(tp);
+
+            // Copy constructors
+
+            Calendar<Gregorian> g1_cal;
+            g1_cal.add_event("Event 1", 1, 1, 2000);
+            g1_cal.add_event("Event 2", 12, 12, 2010);
+            g1_cal.add_event("Event 3", 10, 11, 2015);
+
+            Calendar<Julian> j1_cal(g1_cal);
+            TS_ASSERT(!j1_cal.add_event("Event 1", 19, 12, 1999));
+            TS_ASSERT(!j1_cal.add_event("Event 2", 29, 11, 2010));
+            TS_ASSERT(!j1_cal.add_event("Event 3", 28, 10, 2015));
+
+            Calendar<Julian> j2_cal;
+            j2_cal.add_event("Event 1", 19, 12, 1999);
+            j2_cal.add_event("Event 2", 29, 11, 2010);
+            j2_cal.add_event("Event 3", 28, 10, 2015);
+
+            Calendar<Gregorian> g2_cal(j2_cal);
+            TS_ASSERT(!g2_cal.add_event("Event 1", 1, 1, 2000));
+            TS_ASSERT(!g2_cal.add_event("Event 2", 12, 12, 2010));
+            TS_ASSERT(!g2_cal.add_event("Event 3", 10, 11, 2015));
+
+            // Copy assignment
+
+            Calendar<Gregorian> g3_cal;
+            g3_cal = j1_cal;
+            TS_ASSERT(!g3_cal.add_event("Event 1", 1, 1, 2000));
+            TS_ASSERT(!g3_cal.add_event("Event 2", 12, 12, 2010));
+            TS_ASSERT(!g3_cal.add_event("Event 3", 10, 11, 2015));
+
+            Calendar<Julian> j3_cal;
+            j3_cal = g1_cal;
+            TS_ASSERT(!j3_cal.add_event("Event 1", 19, 12, 1999));
+            TS_ASSERT(!j3_cal.add_event("Event 2", 29, 11, 2010));
+            TS_ASSERT(!j3_cal.add_event("Event 3", 28, 10, 2015));
+
+            TS_ASSERT(j1_cal.remove_event("Event 1", 19, 12, 1999));
+            TS_ASSERT(j1_cal.remove_event("Event 2", 29, 11, 2010));
+            TS_ASSERT(j1_cal.remove_event("Event 3", 28, 10, 2015));
+        }
+
         void test_ical() {
             time_t tp;
             time(&tp);
